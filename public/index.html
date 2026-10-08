@@ -1,207 +1,261 @@
 <!DOCTYPE html>
-<html lang="uz">
+<html lang="uz" class="dark">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CYBER_CORE // Firebase Live Global Edition</title>
+    <title>CYBER_CORE // Enterprise Silicon Valley Edition</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Firebase SDK v9 (Compat) -->
-    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
     <script>
         tailwind.config = {
+            darkMode: 'class',
             theme: {
                 extend: {
                     colors: {
-                        appleDark: '#030712',
-                        appleCard: 'rgba(15, 23, 42, 0.9)',
-                        appleBorder: 'rgba(255, 255, 255, 0.08)',
-                        cyberGreen: '#00ff66',
-                        cyberBlue: '#00f0ff',
+                        enterpriseBg: '#020617',
+                        enterpriseCard: 'rgba(15, 23, 42, 0.75)',
+                        enterpriseBorder: 'rgba(56, 189, 248, 0.15)',
+                        appleBlue: '#0066CC',
+                        appleCyan: '#00F0FF',
+                        cyberGreen: '#10B981',
                     },
                     keyframes: {
-                        appleBounce: {
-                            '0%': { opacity: '0', transform: 'translateY(15px) scale(0.97)' },
-                            '100%': { opacity: '1', transform: 'translateY(0) scale(1)' },
+                        smoothEntrance: {
+                            '0%': { opacity: '0', transform: 'translateY(12px) scale(0.98)', filter: 'blur(8px)' },
+                            '100%': { opacity: '1', transform: 'translateY(0) scale(1)', filter: 'blur(0px)' },
                         }
                     },
                     animation: {
-                        'apple-bounce': 'appleBounce 0.3s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                        'smooth-entrance': 'smoothEntrance 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards',
                     }
                 }
             }
         }
     </script>
+    <!-- Firebase SDK -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap');
-        body { font-family: 'Inter', sans-serif; background-color: #030712; color: #f3f4f6; overflow-x: hidden; }
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+        body { font-family: 'Inter', sans-serif; background-color: #020617; color: #f8fafc; overflow-x: hidden; }
         .code-font { font-family: 'JetBrains Mono', monospace; }
-        .glass-panel { background: rgba(13, 18, 32, 0.85); backdrop-filter: blur(30px); border: 1px solid rgba(255, 255, 255, 0.08); }
-        ::-webkit-scrollbar { width: 4px; }
-        ::-webkit-scrollbar-thumb { background: rgba(255, 255, 255, 0.2); border-radius: 2px; }
+        .glass-panel { background: rgba(15, 23, 42, 0.7); backdrop-filter: blur(25px); border: 1px solid rgba(56, 189, 248, 0.12); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4); }
+        .motion-blur-card { transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+        .motion-blur-card:hover { transform: translateY(-3px); border-color: rgba(0, 240, 255, 0.4); box-shadow: 0 10px 30px -10px rgba(0, 240, 255, 0.2); }
+        ::-webkit-scrollbar { width: 5px; }
+        ::-webkit-scrollbar-thumb { background: rgba(56, 189, 248, 0.2); border-radius: 3px; }
     </style>
 </head>
-<body class="min-h-screen flex flex-col antialiased selection:bg-cyberGreen selection:text-black">
+<body class="min-h-screen flex flex-col antialiased selection:bg-appleBlue selection:text-white">
 
     <!-- LOGIN MODAL -->
-    <div id="login-modal" class="fixed inset-0 bg-black/90 backdrop-blur-2xl z-50 flex items-center justify-center p-4">
-        <div class="glass-panel p-6 rounded-2xl max-w-sm w-full border border-appleBorder space-y-4 animate-apple-bounce shadow-2xl">
-            <div class="text-center space-y-1">
-                <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-cyberGreen to-cyberBlue mx-auto flex items-center justify-center text-black font-bold">
-                    <i data-lucide="shield-check" class="w-5 h-5"></i>
+    <div id="login-modal" class="fixed inset-0 bg-black/85 backdrop-blur-3xl z-50 flex items-center justify-center p-4">
+        <div class="glass-panel p-8 rounded-3xl max-w-md w-full space-y-6 animate-smooth-entrance shadow-2xl">
+            <div class="text-center space-y-2">
+                <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-appleBlue to-appleCyan mx-auto flex items-center justify-center text-white shadow-lg shadow-appleBlue/30">
+                    <i data-lucide="shield-check" class="w-6 h-6"></i>
                 </div>
-                <h2 class="text-sm font-bold text-white tracking-tight">CYBER_CORE Authentication</h2>
-                <p class="text-slate-400 text-[11px]">Tizimga kirish uchun ma'lumotlarni kiriting.</p>
+                <h2 class="text-lg font-bold text-white tracking-tight">CYBER_CORE Enterprise Auth</h2>
+                <p class="text-slate-400 text-xs">Global tarmoqqa ulanish uchun ma'lumotlarni kiriting.</p>
             </div>
             
-            <form onsubmit="handleLogin(event)" class="space-y-3">
+            <form onsubmit="handleLogin(event)" class="space-y-4">
                 <div>
-                    <label class="block text-[10px] font-mono text-slate-400 mb-1 uppercase">Ism va Familiya</label>
-                    <input type="text" id="auth-name" required placeholder="Yusufxon Axmatov" class="w-full bg-black/50 border border-appleBorder rounded-xl px-3 py-2 text-xs text-white focus:outline-none focus:border-cyberGreen">
+                    <label class="block text-[11px] font-mono text-slate-400 mb-1.5 uppercase tracking-wider">Ism va Familiya</label>
+                    <input type="text" id="auth-name" required placeholder="Yusufxon Axmatov" class="w-full bg-slate-900/60 border border-slate-800 rounded-2xl px-4 py-3 text-xs text-white focus:outline-none focus:border-appleCyan transition">
                 </div>
                 <div>
-                    <label class="block text-[10px] font-mono text-slate-400 mb-1 uppercase">Telefon (+998)</label>
-                    <input type="text" id="auth-phone" required placeholder="+998 (90) - 123 - 45 - 67" oninput="formatPhone(this)" class="w-full bg-black/50 border border-appleBorder rounded-xl px-3 py-2 text-xs font-mono text-cyberGreen focus:outline-none focus:border-cyberGreen">
+                    <label class="block text-[11px] font-mono text-slate-400 mb-1.5 uppercase tracking-wider">Telefon (+998)</label>
+                    <input type="text" id="auth-phone" required placeholder="+998 (90) - 123 - 45 - 67" oninput="formatPhone(this)" class="w-full bg-slate-900/60 border border-slate-800 rounded-2xl px-4 py-3 text-xs font-mono text-appleCyan focus:outline-none focus:border-appleCyan transition">
                 </div>
-                <button type="submit" class="w-full py-2.5 rounded-xl bg-cyberGreen text-black font-semibold text-xs hover:opacity-90 transition flex items-center justify-center space-x-2">
-                    <span>Tizimga Kirish</span>
-                    <i data-lucide="arrow-right" class="w-3.5 h-3.5"></i>
+                <button type="submit" class="w-full py-3.5 rounded-2xl bg-gradient-to-r from-appleBlue to-appleCyan text-white font-semibold text-xs hover:opacity-90 transition shadow-lg shadow-appleBlue/20 flex items-center justify-center space-x-2">
+                    <span>Platformaga Kirish</span>
+                    <i data-lucide="arrow-right" class="w-4 h-4"></i>
                 </button>
             </form>
         </div>
     </div>
 
-    <!-- MAIN APP -->
+    <!-- MAIN APP WRAPPER -->
     <div id="app-wrapper" class="hidden min-h-screen flex flex-col">
-        <header class="sticky top-0 z-40 glass-panel border-b border-appleBorder px-4 py-3 flex items-center justify-between">
-            <div class="flex items-center space-x-2">
-                <div class="w-7 h-7 rounded-lg bg-cyberGreen flex items-center justify-center text-black font-bold">
-                    <i data-lucide="shield" class="w-4 h-4"></i>
+        <!-- HEADER -->
+        <header class="sticky top-0 z-40 glass-panel border-b border-enterpriseBorder px-6 py-4 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <div class="w-9 h-9 rounded-xl bg-gradient-to-tr from-appleBlue to-appleCyan flex items-center justify-center text-white shadow-md">
+                    <i data-lucide="cpu" class="w-5 h-5"></i>
                 </div>
-                <span class="text-xs font-bold tracking-wider text-white">CYBER_CORE</span>
+                <div>
+                    <span class="text-sm font-bold tracking-wider text-white">CYBER<span class="text-appleCyan">_CORE</span></span>
+                    <span class="block text-[9px] text-slate-400 font-mono tracking-widest uppercase">Enterprise Cloud</span>
+                </div>
             </div>
 
-            <nav class="flex items-center space-x-1 bg-black/40 p-1 rounded-xl border border-appleBorder text-xs">
-                <button onclick="switchTab('overview')" id="nav-overview" class="px-3 py-1.5 rounded-lg font-medium text-white bg-white/10 transition flex items-center space-x-1.5">
-                    <i data-lucide="home" class="w-3.5 h-3.5"></i><span>Asosiy</span>
+            <nav class="hidden md:flex items-center space-x-1 bg-slate-900/60 p-1 rounded-2xl border border-slate-800 text-xs">
+                <button onclick="switchTab('overview')" id="nav-overview" class="px-4 py-2 rounded-xl font-medium text-white bg-white/10 transition flex items-center space-x-2">
+                    <i data-lucide="layout-dashboard" class="w-3.5 h-3.5 text-appleCyan"></i><span>Asosiy</span>
                 </button>
-                <button onclick="switchTab('chat')" id="nav-chat" class="px-3 py-1.5 rounded-lg font-medium text-slate-400 hover:text-white transition flex items-center space-x-1.5">
+                <button onclick="switchTab('chat')" id="nav-chat" class="px-4 py-2 rounded-xl font-medium text-slate-400 hover:text-white transition flex items-center space-x-2">
                     <i data-lucide="message-square" class="w-3.5 h-3.5"></i><span>Global Chat</span>
                 </button>
-                <button onclick="switchTab('battle')" id="nav-battle" class="px-3 py-1.5 rounded-lg font-medium text-slate-400 hover:text-white transition flex items-center space-x-1.5">
-                    <i data-lucide="cpu" class="w-3.5 h-3.5"></i><span>Battle & Token</span>
+                <button onclick="switchTab('battle')" id="nav-battle" class="px-4 py-2 rounded-xl font-medium text-slate-400 hover:text-white transition flex items-center space-x-2">
+                    <i data-lucide="terminal" class="w-3.5 h-3.5"></i><span>Code Battle & Token</span>
                 </button>
-                <button onclick="switchTab('about')" id="nav-about" class="px-3 py-1.5 rounded-lg font-medium text-slate-400 hover:text-white transition flex items-center space-x-1.5">
-                    <i data-lucide="info" class="w-3.5 h-3.5"></i><span>About</span>
+                <button onclick="switchTab('about')" id="nav-about" class="px-4 py-2 rounded-xl font-medium text-slate-400 hover:text-white transition flex items-center space-x-2">
+                    <i data-lucide="info" class="w-3.5 h-3.5"></i><span>Loyiha Haqida</span>
                 </button>
             </nav>
 
-            <div class="flex items-center space-x-2 text-xs font-mono">
-                <span class="px-2.5 py-1 rounded-full bg-cyberGreen/10 border border-cyberGreen/20 text-cyberGreen flex items-center space-x-1.5">
-                    <span class="w-1.5 h-1.5 rounded-full bg-cyberGreen animate-ping"></span>
+            <div class="flex items-center space-x-3 text-xs font-mono">
+                <span class="px-3 py-1.5 rounded-full bg-cyberGreen/10 border border-cyberGreen/20 text-cyberGreen flex items-center space-x-2">
+                    <span class="w-2 h-2 rounded-full bg-cyberGreen animate-ping"></span>
                     <span>Online: <strong id="real-online-count" class="text-white">1</strong></span>
                 </span>
             </div>
         </header>
 
-        <main class="flex-1 max-w-5xl w-full mx-auto p-4 space-y-4">
+        <!-- CONTENT -->
+        <main class="flex-1 max-w-6xl w-full mx-auto p-6 space-y-6">
             <!-- OVERVIEW -->
-            <section id="tab-overview" class="space-y-4 animate-apple-bounce">
-                <div class="glass-panel p-6 rounded-2xl space-y-3">
-                    <div class="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-full bg-cyberGreen/10 text-cyberGreen text-[10px] font-mono">
-                        <i data-lucide="terminal" class="w-3 h-3"></i><span>Firebase Realtime Database Active</span>
+            <section id="tab-overview" class="space-y-6 animate-smooth-entrance">
+                <div class="glass-panel p-8 md:p-12 rounded-3xl space-y-6 motion-blur-card relative overflow-hidden">
+                    <div class="absolute -right-10 -bottom-10 w-64 h-64 bg-appleBlue/10 rounded-full blur-3xl pointer-events-none"></div>
+                    <div class="space-y-3 max-w-2xl">
+                        <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-appleBlue/10 border border-appleBlue/30 text-appleCyan text-xs font-mono">
+                            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i><span>Silicon Valley Standards</span>
+                        </div>
+                        <h1 class="text-2xl md:text-4xl font-bold tracking-tight text-white">Global Kiberxavfsizlik va Dasturlash Markazi</h1>
+                        <p class="text-slate-400 text-xs md:text-sm leading-relaxed">Vercel va Netlify dizayn tamoyillari asosida yaratilgan professional platforma. Chet eldagi va mahalliy dasturchilar bilan bir vaqtda muloqot qiling.</p>
                     </div>
-                    <h1 class="text-xl font-bold text-white">Professional Kiberxavfsizlik & Dasturlash Ekotizimi</h1>
-                    <p class="text-slate-400 text-xs leading-relaxed">Sizning Firebase bazangiz orqali dunyoning istalgan nuqtasidan xabarlar almashish va Code Battle tokenlari.</p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4">
+                        <div class="p-5 rounded-2xl bg-slate-900/50 border border-slate-800 space-y-2 motion-blur-card">
+                            <i data-lucide="globe" class="w-6 h-6 text-appleCyan"></i>
+                            <h3 class="font-bold text-white text-xs">Real-Time Global Sync</h3>
+                            <p class="text-slate-400 text-[11px]">Firebase bulut bazasi orqali xabarlar bir soniyada yetib boradi.</p>
+                        </div>
+                        <div class="p-5 rounded-2xl bg-slate-900/50 border border-slate-800 space-y-2 motion-blur-card">
+                            <i data-lucide="key" class="w-6 h-6 text-cyberGreen"></i>
+                            <h3 class="font-bold text-white text-xs">Token Battle Arenasi</h3>
+                            <p class="text-slate-400 text-[11px]">Maxsus token generatsiya qilib do'stlar bilan kod almashish.</p>
+                        </div>
+                        <div class="p-5 rounded-2xl bg-slate-900/50 border border-slate-800 space-y-2 motion-blur-card">
+                            <i data-lucide="shield" class="w-6 h-6 text-appleBlue"></i>
+                            <h3 class="font-bold text-white text-xs">Apple UI Motion</h3>
+                            <p class="text-slate-400 text-[11px]">Minimalist oq va ko'k ranglar uyg'unligidagi professional dizayn.</p>
+                        </div>
+                    </div>
                 </div>
             </section>
 
             <!-- GLOBAL CHAT -->
-            <section id="tab-chat" class="hidden space-y-3 animate-apple-bounce">
-                <div class="glass-panel p-4 rounded-2xl h-[520px] flex flex-col justify-between">
-                    <div class="flex items-center justify-between pb-3 border-b border-appleBorder gap-2 overflow-x-auto">
-                        <span class="text-[11px] font-mono text-slate-400 uppercase flex items-center space-x-1"><i data-lucide="hash" class="w-3 h-3"></i><span>Xonalar:</span></span>
-                        <div class="flex gap-1.5">
-                            <button onclick="changeRoom('python')" class="room-btn px-2.5 py-1 rounded-lg bg-cyberGreen text-black text-[11px] font-semibold">Python</button>
-                            <button onclick="changeRoom('javascript')" class="room-btn px-2.5 py-1 rounded-lg bg-white/5 border border-appleBorder text-slate-300 text-[11px]">JavaScript</button>
-                            <button onclick="changeRoom('csharp')" class="room-btn px-2.5 py-1 rounded-lg bg-white/5 border border-appleBorder text-slate-300 text-[11px]">C#</button>
-                            <button onclick="changeRoom('lua')" class="room-btn px-2.5 py-1 rounded-lg bg-white/5 border border-appleBorder text-slate-300 text-[11px]">Lua</button>
-                            <button onclick="changeRoom('security')" class="room-btn px-2.5 py-1 rounded-lg bg-white/5 border border-appleBorder text-rose-400 text-[11px]">Xakerlik</button>
+            <section id="tab-chat" class="hidden space-y-4 animate-smooth-entrance">
+                <div class="glass-panel p-6 rounded-3xl h-[600px] flex flex-col justify-between motion-blur-card">
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between pb-4 border-b border-enterpriseBorder gap-3">
+                        <div class="flex items-center space-x-2">
+                            <i data-lucide="message-square" class="w-4 h-4 text-appleCyan"></i>
+                            <span class="text-xs font-bold text-white uppercase tracking-wider">Til Xonalari</span>
+                        </div>
+                        <div class="flex flex-wrap gap-2">
+                            <button onclick="changeRoom('python')" class="room-btn px-3 py-1.5 rounded-xl bg-appleBlue text-white text-xs font-semibold transition">Python</button>
+                            <button onclick="changeRoom('javascript')" class="room-btn px-3 py-1.5 rounded-xl bg-slate-800/80 border border-slate-700 text-slate-300 text-xs font-medium transition">JavaScript</button>
+                            <button onclick="changeRoom('csharp')" class="room-btn px-3 py-1.5 rounded-xl bg-slate-800/80 border border-slate-700 text-slate-300 text-xs font-medium transition">C#</button>
+                            <button onclick="changeRoom('lua')" class="room-btn px-3 py-1.5 rounded-xl bg-slate-800/80 border border-slate-700 text-slate-300 text-xs font-medium transition">Lua</button>
+                            <button onclick="changeRoom('security')" class="room-btn px-3 py-1.5 rounded-xl bg-slate-800/80 border border-slate-700 text-rose-400 text-xs font-medium transition">Xakerlik</button>
                         </div>
                     </div>
 
-                    <div id="chat-messages-box" class="flex-1 overflow-y-auto space-y-2.5 py-3 pr-1 text-xs"></div>
+                    <div id="chat-messages-box" class="flex-1 overflow-y-auto space-y-3 py-4 pr-2 text-xs"></div>
 
-                    <form onsubmit="sendChatMessage(event)" class="pt-3 border-t border-appleBorder flex items-center space-x-2">
-                        <input type="text" id="chat-input-field" placeholder="Global xabar yozing..." class="flex-1 bg-black/40 border border-appleBorder rounded-xl px-3 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-cyberGreen">
-                        <button type="submit" class="px-4 py-2 rounded-xl bg-cyberGreen text-black font-semibold text-xs hover:opacity-90 transition flex items-center space-x-1">
-                            <span>Yuborish</span><i data-lucide="send" class="w-3.5 h-3.5"></i>
+                    <form onsubmit="sendChatMessage(event)" class="pt-4 border-t border-enterpriseBorder flex items-center space-x-3">
+                        <input type="text" id="chat-input-field" placeholder="Global xabar yozing..." class="flex-1 bg-slate-900/70 border border-slate-800 rounded-2xl px-4 py-3 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-appleCyan transition">
+                        <button type="submit" class="px-6 py-3 rounded-2xl bg-appleBlue text-white font-semibold text-xs hover:bg-blue-600 transition flex items-center space-x-2 shadow-lg shadow-appleBlue/20">
+                            <span>Yuborish</span>
+                            <i data-lucide="send" class="w-3.5 h-3.5"></i>
                         </button>
                     </form>
                 </div>
             </section>
 
-            <!-- BATTLE & TOKEN SYSTEM -->
-            <section id="tab-battle" class="hidden space-y-4 animate-apple-bounce">
-                <div class="glass-panel p-6 rounded-2xl space-y-4">
-                    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
-                        <h2 class="text-base font-bold text-white flex items-center space-x-2"><i data-lucide="cpu" class="w-4 h-4 text-cyberGreen"></i><span>Code Battle & Token Xona</span></h2>
+            <!-- BATTLE & TOKEN -->
+            <section id="tab-battle" class="hidden space-y-6 animate-smooth-entrance">
+                <div class="glass-panel p-6 md:p-8 rounded-3xl space-y-6 motion-blur-card">
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-4">
+                        <div class="space-y-1">
+                            <h2 class="text-base font-bold text-white flex items-center space-x-2">
+                                <i data-lucide="terminal" class="w-5 h-5 text-appleCyan"></i>
+                                <span>Code Battle & Token Arena</span>
+                            </h2>
+                            <p class="text-slate-400 text-xs">Token yarating yoki do'stingizning tokeni bilan xonaga ulaning.</p>
+                        </div>
                         <div class="flex items-center space-x-2">
-                            <button onclick="generateBattleToken()" class="px-3 py-1.5 rounded-xl bg-cyberBlue text-black font-semibold text-[11px] flex items-center space-x-1">
+                            <button onclick="generateBattleToken()" class="px-4 py-2 rounded-xl bg-appleBlue text-white font-semibold text-xs flex items-center space-x-1.5 shadow-md shadow-appleBlue/20 hover:bg-blue-600 transition">
                                 <i data-lucide="key" class="w-3.5 h-3.5"></i><span>Token Yaratish</span>
                             </button>
-                            <button onclick="openJoinModal()" class="px-3 py-1.5 rounded-xl bg-white/10 text-white font-semibold text-[11px] flex items-center space-x-1">
+                            <button onclick="openJoinModal()" class="px-4 py-2 rounded-xl bg-slate-800 border border-slate-700 text-white font-semibold text-xs flex items-center space-x-1.5 hover:bg-slate-700 transition">
                                 <i data-lucide="log-in" class="w-3.5 h-3.5"></i><span>Token bilan Kirish</span>
                             </button>
                         </div>
                     </div>
 
-                    <div id="token-display-box" class="hidden p-3 rounded-xl bg-black/60 border border-appleBorder text-xs font-mono text-cyberGreen flex items-center justify-between">
+                    <div id="token-display-box" class="hidden p-4 rounded-2xl bg-slate-900/80 border border-enterpriseBorder text-xs font-mono text-appleCyan flex items-center justify-between">
                         <span id="battle-token-text">TOKEN: --</span>
-                        <button onclick="copyToken()" class="text-white hover:text-cyberGreen text-[11px]">Nusxa olish</button>
+                        <button onclick="copyToken()" class="text-white hover:text-appleCyan text-[11px] underline">Nusxa olish</button>
                     </div>
 
-                    <p class="text-slate-400 text-xs" id="current-room-indicator">Aktiv Token Xona: GENERAL-ARENA</p>
-                    <textarea id="battle-code" class="w-full h-32 bg-black/60 border border-appleBorder rounded-xl p-3 code-font text-xs text-cyberGreen focus:outline-none focus:border-cyberGreen" placeholder="// Battle kodini shu yerga yozing..."></textarea>
-                    <button onclick="submitBattle()" class="px-4 py-2 rounded-xl bg-cyberGreen text-black font-semibold text-xs">Kodni Tarqatish & Like Yig'ish</button>
-                    <div id="battle-results" class="space-y-2 mt-3"></div>
+                    <p class="text-slate-400 text-xs font-mono" id="current-room-indicator">Aktiv Xona: GENERAL-ARENA</p>
+                    <textarea id="battle-code" class="w-full h-40 bg-slate-900/80 border border-slate-800 rounded-2xl p-4 code-font text-xs text-appleCyan focus:outline-none focus:border-appleCyan transition" placeholder="// Python, JS yoki C# kodingizni shu yerga yozing..."></textarea>
+                    
+                    <button onclick="submitBattle()" class="px-6 py-3 rounded-2xl bg-cyberGreen text-slate-950 font-bold text-xs hover:opacity-90 transition shadow-lg shadow-cyberGreen/20">
+                        Kodni Global Tarqatish
+                    </button>
+
+                    <div id="battle-results" class="space-y-3 mt-4"></div>
                 </div>
             </section>
 
             <!-- ABOUT -->
-            <section id="tab-about" class="hidden space-y-4 animate-apple-bounce">
-                <div class="glass-panel p-6 rounded-2xl space-y-4 text-xs leading-relaxed">
-                    <div class="flex items-center space-x-3 pb-3 border-b border-appleBorder">
-                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-cyberGreen to-cyberBlue flex items-center justify-center text-black font-bold">
-                            <i data-lucide="info" class="w-5 h-5"></i>
+            <section id="tab-about" class="hidden space-y-6 animate-smooth-entrance">
+                <div class="glass-panel p-8 rounded-3xl space-y-6 motion-blur-card">
+                    <div class="flex items-center space-x-4 pb-4 border-b border-enterpriseBorder">
+                        <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-appleBlue to-appleCyan flex items-center justify-center text-white shadow-lg">
+                            <i data-lucide="shield-check" class="w-6 h-6"></i>
                         </div>
                         <div>
-                            <h2 class="text-base font-bold text-white">CYBER_CORE Platformasi Haqida</h2>
-                            <p class="text-slate-400 text-[11px]">O'zbekistonlik dasturchilar uchun xavfsizlik va muloqot maskani.</p>
+                            <h2 class="text-lg font-bold text-white">CYBER_CORE Enterprise Edition</h2>
+                            <p class="text-slate-400 text-xs">O'zbekistonlik dasturchilar uchun global xavfsizlik va kodlash ekotizimi.</p>
                         </div>
                     </div>
-                    <p class="text-slate-300">Bu platforma dasturchilarga o'zaro tajriba almashish, xavfsizlik qoidalarini o'rganish va tokenlar yordamida code battle o'tkazish imkonini beradi. Muallif: Yusufxon Axmatov.</p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-slate-300">
+                        <div class="p-5 rounded-2xl bg-slate-900/50 border border-slate-800 space-y-2">
+                            <h3 class="font-bold text-white flex items-center space-x-2"><i data-lucide="cpu" class="w-4 h-4 text-appleCyan"></i><span>Arxitektura</span></h3>
+                            <p class="text-slate-400 leading-relaxed">Platforma to'liq Firebase Realtime Database va zamonaviy Tailwind CSS yordamida qurilgan bo'lib, dunyoning istalgan nuqtasidan uzluksiz sinxronizatsiyani ta'minlaydi.</p>
+                        </div>
+                        <div class="p-5 rounded-2xl bg-slate-900/50 border border-slate-800 space-y-2">
+                            <h3 class="font-bold text-white flex items-center space-x-2"><i data-lucide="user" class="w-4 h-4 text-cyberGreen"></i><span>Muallif & Dizayn</span></h3>
+                            <p class="text-slate-400 leading-relaxed">Loyiha muallifi: <strong class="text-white">Yusufxon Axmatov</strong>. Silicon Valley minimalist dizayn standartlari va Apple Motion estetikasiga asoslangan.</p>
+                        </div>
+                    </div>
                 </div>
             </section>
         </main>
     </div>
 
-    <!-- Token Join Modal -->
+    <!-- TOKEN MODAL -->
     <div id="token-modal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
-        <div class="glass-panel p-6 rounded-2xl max-w-sm w-full border border-appleBorder space-y-4 animate-apple-bounce">
+        <div class="glass-panel p-6 rounded-3xl max-w-sm w-full space-y-4 animate-smooth-entrance">
             <h3 class="text-sm font-bold text-white">Token orqali Xonaga Qo'shilish</h3>
             <p class="text-xs text-slate-400">Do'stingizdan olgan battle tokenini kiriting:</p>
-            <input type="text" id="join-token-input" placeholder="CYBER-XXXX" class="w-full bg-black/50 border border-appleBorder rounded-xl px-3 py-2 text-xs font-mono text-cyberGreen focus:outline-none">
-            <div class="flex justify-end space-x-2">
-                <button onclick="closeJoinModal()" class="px-3 py-1.5 bg-white/10 text-white rounded-xl text-xs">Bekor qilish</button>
-                <button onclick="joinBattleByToken()" class="px-3 py-1.5 bg-cyberGreen text-black font-semibold rounded-xl text-xs">Qo'shilish</button>
+            <input type="text" id="join-token-input" placeholder="CYBER-XXXX" class="w-full bg-slate-900/80 border border-slate-800 rounded-xl px-4 py-3 text-xs font-mono text-appleCyan focus:outline-none focus:border-appleCyan">
+            <div class="flex justify-end space-x-2 pt-2">
+                <button onclick="closeJoinModal()" class="px-4 py-2 bg-slate-800 text-white rounded-xl text-xs hover:bg-slate-700 transition">Bekor qilish</button>
+                <button onclick="joinBattleByToken()" class="px-4 py-2 bg-appleBlue text-white font-semibold rounded-xl text-xs hover:bg-blue-600 transition">Qo'shilish</button>
             </div>
         </div>
     </div>
 
-    <!-- Firebase & App Script Logic -->
+    <!-- SCRIPT LOGIC -->
     <script>
         const firebaseConfig = {
             apiKey: "AIzaSyDsSfr1Prv1kjnrr1Ya4pEr2grwJy8tPns",
@@ -251,7 +305,7 @@
             if (!name || phone.length < 25) return alert("Ma'lumotlarni to'liq kiriting!");
 
             currentUser = { name, phone };
-            localStorage.setItem('cyber_firebase_user', JSON.stringify(currentUser));
+            localStorage.setItem('cyber_enterprise_user', JSON.stringify(currentUser));
             myPresence.set(currentUser);
 
             document.getElementById('login-modal').classList.add('hidden');
@@ -262,7 +316,7 @@
         }
 
         window.addEventListener('DOMContentLoaded', () => {
-            const saved = localStorage.getItem('cyber_firebase_user');
+            const saved = localStorage.getItem('cyber_enterprise_user');
             if (saved) {
                 currentUser = JSON.parse(saved);
                 myPresence.set(currentUser);
@@ -277,10 +331,10 @@
         function switchTab(id) {
             ['overview', 'chat', 'battle', 'about'].forEach(t => {
                 document.getElementById('tab-' + t).classList.add('hidden');
-                document.getElementById('nav-' + t).className = "px-3 py-1.5 rounded-lg font-medium text-slate-400 hover:text-white transition flex items-center space-x-1.5";
+                document.getElementById('nav-' + t).className = "px-4 py-2 rounded-xl font-medium text-slate-400 hover:text-white transition flex items-center space-x-2";
             });
             document.getElementById('tab-' + id).classList.remove('hidden');
-            document.getElementById('nav-' + id).className = "px-3 py-1.5 rounded-lg font-medium text-white bg-white/10 transition flex items-center space-x-1.5";
+            document.getElementById('nav-' + id).className = "px-4 py-2 rounded-xl font-medium text-white bg-white/10 transition flex items-center space-x-2";
             lucide.createIcons();
         }
 
@@ -318,13 +372,13 @@
         function appendMsg(sender, text, isSelf) {
             const box = document.getElementById('chat-messages-box');
             const html = `
-                <div class="flex items-start space-x-2 ${isSelf ? 'justify-end' : ''} animate-apple-bounce">
-                    <div class="${isSelf ? 'bg-cyberGreen/10 border-cyberGreen/20' : 'bg-white/5 border-appleBorder'} border p-2.5 rounded-xl max-w-xs">
-                        <div class="flex items-center ${isSelf ? 'justify-end' : ''} space-x-2 mb-0.5">
+                <div class="flex items-start space-x-2 ${isSelf ? 'justify-end' : ''} animate-smooth-entrance">
+                    <div class="${isSelf ? 'bg-appleBlue/20 border-appleBlue/30 text-white' : 'bg-slate-900/80 border-slate-800 text-slate-200'} border p-3 rounded-2xl max-w-sm">
+                        <div class="flex items-center ${isSelf ? 'justify-end' : ''} space-x-2 mb-1">
                             <span class="text-[9px] text-slate-400 font-mono">Hozir</span>
-                            <span class="text-[11px] font-semibold ${isSelf ? 'text-cyberGreen' : 'text-white'}">${sender}</span>
+                            <span class="text-[11px] font-semibold ${isSelf ? 'text-appleCyan' : 'text-white'}">${sender}</span>
                         </div>
-                        <p class="text-xs text-slate-200">${text}</p>
+                        <p class="text-xs leading-relaxed">${text}</p>
                     </div>
                 </div>
             `;
@@ -384,12 +438,12 @@
             battleRef.on('child_added', (snapshot) => {
                 const data = snapshot.val();
                 res.innerHTML += `
-                    <div class="p-3 bg-black/60 border border-appleBorder rounded-xl text-xs space-y-1 animate-apple-bounce">
-                        <div class="flex justify-between text-cyberGreen font-bold">
+                    <div class="p-4 bg-slate-900/80 border border-slate-800 rounded-2xl text-xs space-y-2 animate-smooth-entrance">
+                        <div class="flex justify-between text-appleCyan font-bold">
                             <span>${data.sender} [Token: ${currentBattleToken}]</span>
                             <span>Likes: <strong class="text-white">${data.likes}</strong></span>
                         </div>
-                        <pre class="code-font text-slate-300 overflow-x-auto">${data.code}</pre>
+                        <pre class="code-font text-slate-300 overflow-x-auto p-2 bg-slate-950/60 rounded-xl">${data.code}</pre>
                     </div>
                 `;
             });

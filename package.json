@@ -1,6 +1,12 @@
 {
-  "name": "cyber-core-vercel",
+  "name": "cyber-core-global",
   "version": "1.0.0",
-  "description": "Enterprise Security & Code Arena Platform",
-  "private": true
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2",
+    "socket.io": "^4.7.5"
+  }
 }

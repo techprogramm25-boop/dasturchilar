@@ -134,4 +134,268 @@
 
                     <div id="chat-messages-box" class="flex-1 overflow-y-auto space-y-2.5 py-3 pr-1 text-xs"></div>
 
-                    <form onsubmit="sendChatMessage(event)" class="pt-3 border
+                    <form onsubmit="sendChatMessage(event)" class="pt-3 border-t border-appleBorder flex items-center space-x-2">
+                        <input type="text" id="chat-input-field" placeholder="Global xabar yozing..." class="flex-1 bg-black/40 border border-appleBorder rounded-xl px-3 py-2 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-cyberGreen">
+                        <button type="submit" class="px-4 py-2 rounded-xl bg-cyberGreen text-black font-semibold text-xs hover:opacity-90 transition flex items-center space-x-1">
+                            <span>Yuborish</span><i data-lucide="send" class="w-3.5 h-3.5"></i>
+                        </button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- BATTLE & TOKEN SYSTEM -->
+            <section id="tab-battle" class="hidden space-y-4 animate-apple-bounce">
+                <div class="glass-panel p-6 rounded-2xl space-y-4">
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
+                        <h2 class="text-base font-bold text-white flex items-center space-x-2"><i data-lucide="cpu" class="w-4 h-4 text-cyberGreen"></i><span>Code Battle & Token Xona</span></h2>
+                        <div class="flex items-center space-x-2">
+                            <button onclick="generateBattleToken()" class="px-3 py-1.5 rounded-xl bg-cyberBlue text-black font-semibold text-[11px] flex items-center space-x-1">
+                                <i data-lucide="key" class="w-3.5 h-3.5"></i><span>Token Yaratish</span>
+                            </button>
+                            <button onclick="openJoinModal()" class="px-3 py-1.5 rounded-xl bg-white/10 text-white font-semibold text-[11px] flex items-center space-x-1">
+                                <i data-lucide="log-in" class="w-3.5 h-3.5"></i><span>Token bilan Kirish</span>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div id="token-display-box" class="hidden p-3 rounded-xl bg-black/60 border border-appleBorder text-xs font-mono text-cyberGreen flex items-center justify-between">
+                        <span id="battle-token-text">TOKEN: --</span>
+                        <button onclick="copyToken()" class="text-white hover:text-cyberGreen text-[11px]">Nusxa olish</button>
+                    </div>
+
+                    <p class="text-slate-400 text-xs" id="current-room-indicator">Aktiv Token Xona: GENERAL-ARENA</p>
+                    <textarea id="battle-code" class="w-full h-32 bg-black/60 border border-appleBorder rounded-xl p-3 code-font text-xs text-cyberGreen focus:outline-none focus:border-cyberGreen" placeholder="// Battle kodini shu yerga yozing..."></textarea>
+                    <button onclick="submitBattle()" class="px-4 py-2 rounded-xl bg-cyberGreen text-black font-semibold text-xs">Kodni Tarqatish & Like Yig'ish</button>
+                    <div id="battle-results" class="space-y-2 mt-3"></div>
+                </div>
+            </section>
+
+            <!-- ABOUT -->
+            <section id="tab-about" class="hidden space-y-4 animate-apple-bounce">
+                <div class="glass-panel p-6 rounded-2xl space-y-4 text-xs leading-relaxed">
+                    <div class="flex items-center space-x-3 pb-3 border-b border-appleBorder">
+                        <div class="w-10 h-10 rounded-xl bg-gradient-to-br from-cyberGreen to-cyberBlue flex items-center justify-center text-black font-bold">
+                            <i data-lucide="info" class="w-5 h-5"></i>
+                        </div>
+                        <div>
+                            <h2 class="text-base font-bold text-white">CYBER_CORE Platformasi Haqida</h2>
+                            <p class="text-slate-400 text-[11px]">O'zbekistonlik dasturchilar uchun xavfsizlik va muloqot maskani.</p>
+                        </div>
+                    </div>
+                    <p class="text-slate-300">Bu platforma dasturchilarga o'zaro tajriba almashish, xavfsizlik qoidalarini o'rganish va tokenlar yordamida code battle o'tkazish imkonini beradi. Muallif: Yusufxon Axmatov.</p>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <!-- Token Join Modal -->
+    <div id="token-modal" class="fixed inset-0 bg-black/80 backdrop-blur-md z-50 hidden flex items-center justify-center p-4">
+        <div class="glass-panel p-6 rounded-2xl max-w-sm w-full border border-appleBorder space-y-4 animate-apple-bounce">
+            <h3 class="text-sm font-bold text-white">Token orqali Xonaga Qo'shilish</h3>
+            <p class="text-xs text-slate-400">Do'stingizdan olgan battle tokenini kiriting:</p>
+            <input type="text" id="join-token-input" placeholder="CYBER-XXXX" class="w-full bg-black/50 border border-appleBorder rounded-xl px-3 py-2 text-xs font-mono text-cyberGreen focus:outline-none">
+            <div class="flex justify-end space-x-2">
+                <button onclick="closeJoinModal()" class="px-3 py-1.5 bg-white/10 text-white rounded-xl text-xs">Bekor qilish</button>
+                <button onclick="joinBattleByToken()" class="px-3 py-1.5 bg-cyberGreen text-black font-semibold rounded-xl text-xs">Qo'shilish</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Firebase & App Script Logic -->
+    <script>
+        const firebaseConfig = {
+            apiKey: "AIzaSyDsSfr1Prv1kjnrr1Ya4pEr2grwJy8tPns",
+            authDomain: "dasturchilar.firebaseapp.com",
+            projectId: "dasturchilar",
+            storageBucket: "dasturchilar.firebasestorage.app",
+            messagingSenderId: "626669399241",
+            appId: "1:626669399241:web:1167ea4760b459aa133118",
+            measurementId: "G-6RHBVLWGNT",
+            databaseURL: "https://dasturchilar-default-rtdb.firebaseio.com"
+        };
+
+        firebase.initializeApp(firebaseConfig);
+        const db = firebase.database();
+
+        let currentUser = null;
+        let currentRoom = 'python';
+        let currentBattleToken = 'GENERAL-ARENA';
+
+        const presenceRef = db.ref('presence');
+        const myPresence = presenceRef.push();
+        myPresence.onDisconnect().remove();
+
+        db.ref('presence').on('value', (snap) => {
+            document.getElementById('real-online-count').innerText = snap.numChildren() || 1;
+        });
+
+        function formatPhone(input) {
+            let val = input.value.replace(/\D/g, '');
+            if (val.startsWith('998')) val = val.slice(3);
+            val = val.substring(0, 9);
+            let formatted = '+998 ';
+            if (val.length > 0) formatted += '(' + val.substring(0, 2);
+            if (val.length >= 2) formatted += ') - ';
+            if (val.length > 2) formatted += val.substring(2, 5);
+            if (val.length >= 5) formatted += ' - ';
+            if (val.length > 5) formatted += val.substring(5, 7);
+            if (val.length >= 7) formatted += ' - ';
+            if (val.length > 7) formatted += val.substring(7, 9);
+            input.value = formatted;
+        }
+
+        function handleLogin(e) {
+            e.preventDefault();
+            const name = document.getElementById('auth-name').value.trim();
+            const phone = document.getElementById('auth-phone').value.trim();
+            if (!name || phone.length < 25) return alert("Ma'lumotlarni to'liq kiriting!");
+
+            currentUser = { name, phone };
+            localStorage.setItem('cyber_firebase_user', JSON.stringify(currentUser));
+            myPresence.set(currentUser);
+
+            document.getElementById('login-modal').classList.add('hidden');
+            document.getElementById('app-wrapper').classList.remove('hidden');
+            listenToRoom(currentRoom);
+            listenToBattles();
+            lucide.createIcons();
+        }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const saved = localStorage.getItem('cyber_firebase_user');
+            if (saved) {
+                currentUser = JSON.parse(saved);
+                myPresence.set(currentUser);
+                document.getElementById('login-modal').classList.add('hidden');
+                document.getElementById('app-wrapper').classList.remove('hidden');
+                listenToRoom(currentRoom);
+                listenToBattles();
+            }
+            lucide.createIcons();
+        });
+
+        function switchTab(id) {
+            ['overview', 'chat', 'battle', 'about'].forEach(t => {
+                document.getElementById('tab-' + t).classList.add('hidden');
+                document.getElementById('nav-' + t).className = "px-3 py-1.5 rounded-lg font-medium text-slate-400 hover:text-white transition flex items-center space-x-1.5";
+            });
+            document.getElementById('tab-' + id).classList.remove('hidden');
+            document.getElementById('nav-' + id).className = "px-3 py-1.5 rounded-lg font-medium text-white bg-white/10 transition flex items-center space-x-1.5";
+            lucide.createIcons();
+        }
+
+        function changeRoom(room) {
+            currentRoom = room;
+            listenToRoom(room);
+        }
+
+        function listenToRoom(room) {
+            const chatRef = db.ref('chats/' + room);
+            chatRef.off();
+            const box = document.getElementById('chat-messages-box');
+            box.innerHTML = '';
+
+            chatRef.limitToLast(50).on('child_added', (snapshot) => {
+                const data = snapshot.val();
+                appendMsg(data.sender, data.text, currentUser && data.sender === currentUser.name);
+            });
+        }
+
+        function sendChatMessage(e) {
+            e.preventDefault();
+            const input = document.getElementById('chat-input-field');
+            const text = input.value.trim();
+            if (!text || !currentUser) return;
+
+            db.ref('chats/' + currentRoom).push({
+                sender: currentUser.name,
+                text: text,
+                timestamp: Date.now()
+            });
+            input.value = '';
+        }
+
+        function appendMsg(sender, text, isSelf) {
+            const box = document.getElementById('chat-messages-box');
+            const html = `
+                <div class="flex items-start space-x-2 ${isSelf ? 'justify-end' : ''} animate-apple-bounce">
+                    <div class="${isSelf ? 'bg-cyberGreen/10 border-cyberGreen/20' : 'bg-white/5 border-appleBorder'} border p-2.5 rounded-xl max-w-xs">
+                        <div class="flex items-center ${isSelf ? 'justify-end' : ''} space-x-2 mb-0.5">
+                            <span class="text-[9px] text-slate-400 font-mono">Hozir</span>
+                            <span class="text-[11px] font-semibold ${isSelf ? 'text-cyberGreen' : 'text-white'}">${sender}</span>
+                        </div>
+                        <p class="text-xs text-slate-200">${text}</p>
+                    </div>
+                </div>
+            `;
+            box.insertAdjacentHTML('beforeend', html);
+            box.scrollTop = box.scrollHeight;
+        }
+
+        function generateBattleToken() {
+            const token = 'CYBER-' + Math.random().toString(36).substring(2, 8).toUpperCase();
+            currentBattleToken = token;
+            document.getElementById('battle-token-text').innerText = "TOKEN: " + token;
+            document.getElementById('token-display-box').classList.remove('hidden');
+            document.getElementById('current-room-indicator').innerText = "Aktiv Token Xona: " + token;
+            listenToBattles();
+            alert("Battle token yaratildi: " + token);
+        }
+
+        function copyToken() {
+            const tokenText = document.getElementById('battle-token-text').innerText;
+            navigator.clipboard.writeText(tokenText);
+            alert("Token nusxalandi!");
+        }
+
+        function openJoinModal() { document.getElementById('token-modal').classList.remove('hidden'); }
+        function closeJoinModal() { document.getElementById('token-modal').classList.add('hidden'); }
+
+        function joinBattleByToken() {
+            const val = document.getElementById('join-token-input').value.trim();
+            if(!val) return alert("Token kiriting!");
+            currentBattleToken = val.replace('TOKEN: ', '').toUpperCase();
+            document.getElementById('current-room-indicator').innerText = "Aktiv Token Xona: " + currentBattleToken;
+            closeJoinModal();
+            listenToBattles();
+            alert("Token xonasiga muvaffaqiyatli qo'shildingiz!");
+        }
+
+        function submitBattle() {
+            const code = document.getElementById('battle-code').value.trim();
+            if(!code || !currentUser) return alert("Kod kiriting!");
+
+            db.ref('battles/' + currentBattleToken).push({
+                sender: currentUser.name,
+                code: code,
+                likes: 1,
+                timestamp: Date.now()
+            });
+            document.getElementById('battle-code').value = '';
+            alert("Kodingiz token xonasiga tarqatildi!");
+        }
+
+        function listenToBattles() {
+            const battleRef = db.ref('battles/' + currentBattleToken);
+            battleRef.off();
+            const res = document.getElementById('battle-results');
+            res.innerHTML = '';
+
+            battleRef.on('child_added', (snapshot) => {
+                const data = snapshot.val();
+                res.innerHTML += `
+                    <div class="p-3 bg-black/60 border border-appleBorder rounded-xl text-xs space-y-1 animate-apple-bounce">
+                        <div class="flex justify-between text-cyberGreen font-bold">
+                            <span>${data.sender} [Token: ${currentBattleToken}]</span>
+                            <span>Likes: <strong class="text-white">${data.likes}</strong></span>
+                        </div>
+                        <pre class="code-font text-slate-300 overflow-x-auto">${data.code}</pre>
+                    </div>
+                `;
+            });
+        }
+
+        lucide.createIcons();
+    </script>
+</body>
+</html>

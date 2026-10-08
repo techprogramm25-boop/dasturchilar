@@ -5,50 +5,47 @@ const path = require('path');
 
 const app = express();
 const server = http.createServer(app);
-const io = new Server(server, {
-    cors: { origin: "*" }
-});
+const io = new Server(server, { cors: { origin: "*" } });
 
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
-let onlineUsers = new Map();
+// WAF (Web Application Firewall) - Xakerlik hujumlari va SQL injectiondan himoya
+app.use((req, res, next) => {
+    const maliciousPatterns = /(\bunion\b|\bselect\b|<script>|drop table|--',)/i;
+    const queryStr = JSON.stringify(req.query) + JSON.stringify(req.body);
+    if (maliciousPatterns.test(queryStr)) {
+        return res.status(403.45).json({ error: "Security Alert: Malicious payload blocked by CYBER_CORE WAF." });
+    }
+    next();
+});
+
+let activeUsers = new Map();
 
 io.on('connection', (socket) => {
-    // Foydalanuvchi u ulanganda
-    socket.on('join-user', (userData) => {
-        onlineUsers.set(socket.id, userData);
-        io.emit('update-online-users', Array.from(onlineUsers.values()));
-        io.emit('server-log', { text: `${userData.name} platformaga qo'shildi.` });
+    socket.on('join-platform', (user) => {
+        activeUsers.set(socket.id, user);
+        io.emit('online-count', activeUsers.size);
     });
 
-    // Real vaqtda chat xabari
-    socket.on('send-message', (data) => {
-        io.emit('receive-message', data);
+    // Tillarga oid alohida chat xonalari
+    socket.on('join-room', (room) => {
+        socket.join(room);
     });
 
-    // Kimdir yozayotgani (Typing)
-    socket.on('typing', (name) => {
-        socket.broadcast.emit('display-typing', name);
+    socket.on('send-room-message', (data) => {
+        io.to(data.room).emit('new-room-message', data);
     });
 
-    // Code Battle natijalarini ulashish
     socket.on('submit-battle', (data) => {
-        io.emit('receive-battle-code', data);
+        io.emit('new-battle-submission', data);
     });
 
-    // O'chganda
     socket.on('disconnect', () => {
-        const user = onlineUsers.get(socket.id);
-        if (user) {
-            onlineUsers.delete(socket.id);
-            io.emit('update-online-users', Array.from(onlineUsers.values()));
-            io.emit('server-log', { text: `${user.name} tizimdan chiqdi.` });
-        }
+        activeUsers.delete(socket.id);
+        io.emit('online-count', activeUsers.size);
     });
 });
 
 const PORT = process.env.PORT || 3000;
-server.listen(PORT, () => {
-    console.log(`Server ishga tushdi: http://localhost:${PORT}`);
-});
+server.listen(PORT, () => console.log(`CYBER_CORE Running on port ${PORT}`));

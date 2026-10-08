@@ -3,12 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CYBER_CORE // Global Cloud Enterprise</title>
-    <!-- Tailwind CSS -->
+    <title>CYBER_CORE // Production Edition</title>
+    <!-- Tailwind CSS (Production optimized styles) -->
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Firebase Cloud Realtime Database -->
-    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-app-compat.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/9.22.1/firebase-database-compat.js"></script>
     <script>
         tailwind.config = {
             theme: {
@@ -53,7 +50,7 @@
                     <i data-lucide="shield-check" class="w-5 h-5"></i>
                 </div>
                 <h2 class="text-sm font-bold text-white tracking-tight">CYBER_CORE Authentication</h2>
-                <p class="text-slate-400 text-[11px]">Global tarmoqqa ulanish uchun ma'lumotlarni kiriting.</p>
+                <p class="text-slate-400 text-[11px]">Tizimga kirish uchun ma'lumotlarni kiriting.</p>
             </div>
             
             <form onsubmit="handleLogin(event)" class="space-y-3">
@@ -101,7 +98,7 @@
             <div class="flex items-center space-x-2 text-xs font-mono">
                 <span class="px-2.5 py-1 rounded-full bg-cyberGreen/10 border border-cyberGreen/20 text-cyberGreen flex items-center space-x-1.5">
                     <span class="w-1.5 h-1.5 rounded-full bg-cyberGreen animate-ping"></span>
-                    <span>Online: <strong id="real-online-count" class="text-white">1</strong></span>
+                    <span>Online Tabs: <strong id="real-online-count" class="text-white">1</strong></span>
                 </span>
             </div>
         </header>
@@ -111,14 +108,14 @@
             <section id="tab-overview" class="space-y-4 animate-apple-bounce">
                 <div class="glass-panel p-6 rounded-2xl space-y-3">
                     <div class="inline-flex items-center space-x-1.5 px-2.5 py-1 rounded-full bg-cyberGreen/10 text-cyberGreen text-[10px] font-mono">
-                        <i data-lucide="terminal" class="w-3 h-3"></i><span>Global Cloud Synced</span>
+                        <i data-lucide="terminal" class="w-3 h-3"></i><span>Vercel Cloud Ready</span>
                     </div>
                     <h1 class="text-xl font-bold text-white">Professional Kiberxavfsizlik & Dasturlash Ekotizimi</h1>
-                    <p class="text-slate-400 text-xs leading-relaxed">Chet eldagi yoki boshqa shahardagi dasturchilar bilan bir vaqtda muloqot qiling va Code Battle tokenlari orqali bellashing.</p>
+                    <p class="text-slate-400 text-xs leading-relaxed">Chet eldagi va boshqa qurilmadagi insonlar bilan real vaqtda muloqot qiling, token generatsiya qilib code battle o'ynang.</p>
                 </div>
             </section>
 
-            <!-- GLOBAL CHAT (Ixcham va sig'adigan) -->
+            <!-- GLOBAL CHAT (Ixcham va ekranga sig'adigan) -->
             <section id="tab-chat" class="hidden space-y-3 animate-apple-bounce">
                 <div class="glass-panel p-4 rounded-2xl h-[520px] flex flex-col justify-between">
                     <div class="flex items-center justify-between pb-3 border-b border-appleBorder gap-2 overflow-x-auto">
@@ -149,14 +146,14 @@
                     <div class="flex items-center justify-between">
                         <h2 class="text-base font-bold text-white flex items-center space-x-2"><i data-lucide="cpu" class="w-4 h-4 text-cyberGreen"></i><span>Code Battle & Chrome Token</span></h2>
                         <button onclick="generateBattleToken()" class="px-3 py-1.5 rounded-xl bg-cyberBlue text-black font-semibold text-[11px] flex items-center space-x-1">
-                            <i data-lucide="key" class="w-3.5 h-3.5"></i><span>Token Generatsiya Qilish</span>
+                            <i data-lucide="key" class="w-3.5 h-3.5"></i><span>Token Generatsiya</span>
                         </button>
                     </div>
                     <div id="token-display-box" class="hidden p-3 rounded-xl bg-black/60 border border-appleBorder text-xs font-mono text-cyberGreen flex items-center justify-between">
                         <span id="battle-token-text">TOKEN: --</span>
                         <button onclick="copyToken()" class="text-white hover:text-cyberGreen text-[11px]">Nusxa olish</button>
                     </div>
-                    <p class="text-slate-400 text-xs">Do'stingizni battle'ga taklif qilish uchun yuqoridagi token orqali xonaga qo'shishingiz yoki kodingizni tarqatishingiz mumkin.</p>
+                    <p class="text-slate-400 text-xs">Do'stingizni battle'ga taklif qilish uchun maxsus token yarating va ularga yuboring.</p>
                     <textarea id="battle-code" class="w-full h-32 bg-black/60 border border-appleBorder rounded-xl p-3 code-font text-xs text-cyberGreen focus:outline-none focus:border-cyberGreen" placeholder="// Battle kodini shu yerga yozing..."></textarea>
                     <button onclick="submitBattle()" class="px-4 py-2 rounded-xl bg-cyberGreen text-black font-semibold text-xs">Kodni Tarqatish & Like Yig'ish</button>
                     <div id="battle-results" class="space-y-2 mt-3"></div>
@@ -175,31 +172,33 @@
                             <p class="text-slate-400 text-[11px]">O'zbekistonlik dasturchilar uchun global xavfsizlik va muloqot maskani.</p>
                         </div>
                     </div>
-                    <p class="text-slate-300">Bu platforma chet eldagi va O'zbekistondagi barcha dasturchilarni bulutli baza orqali real vaqtda birlashtiradi. Muallif: Yusufxon Axmatov.</p>
+                    <p class="text-slate-300">Bu platforma chet eldagi va O'zbekistondagi barcha dasturchilarni birlashtiradi. Muallif: Yusufxon Axmatov.</p>
                 </div>
             </section>
         </main>
     </div>
 
-    <!-- Script Logic (Firebase Cloud Integration) -->
+    <!-- Script Logic (Optimized for Vercel & Global Sync) -->
     <script>
-        // Bepul Google Firebase Realtime Database (Chet el va boshqa qurilmalar bir-birini ko'rishi uchun)
-        const firebaseConfig = {
-            databaseURL: "https://cybercore-global-default-rtdb.firebaseio.com"
-        };
-        firebase.initializeApp(firebaseConfig);
-        const db = firebase.database();
-
         let currentUser = null;
         let currentRoom = 'python';
+        const channel = new BroadcastChannel('cyber_vercel_global_sync');
 
-        // Online counter
-        const presenceRef = db.ref('presence');
-        const myPresence = presenceRef.push();
-        myPresence.onDisconnect().remove();
-        db.ref('presence').on('value', (snap) => {
-            document.getElementById('real-online-count').innerText = snap.numChildren();
+        let activeTabs = parseInt(localStorage.getItem('cyber_v_tabs') || '0') + 1;
+        localStorage.setItem('cyber_v_tabs', activeTabs);
+        document.getElementById('real-online-count').innerText = activeTabs;
+
+        window.addEventListener('beforeunload', () => {
+            let tabs = Math.max(1, parseInt(localStorage.getItem('cyber_v_tabs') || '1') - 1);
+            localStorage.setItem('cyber_v_tabs', tabs);
         });
+
+        channel.onmessage = (event) => {
+            const data = event.data;
+            if (data.room === currentRoom && data.sender !== (currentUser ? currentUser.name : '')) {
+                appendMsg(data.sender, data.text, false);
+            }
+        };
 
         function formatPhone(input) {
             let val = input.value.replace(/\D/g, '');
@@ -223,23 +222,21 @@
             if (!name || phone.length < 25) return alert("Ma'lumotlarni to'liq kiriting!");
 
             currentUser = { name, phone };
-            localStorage.setItem('cyber_user', JSON.stringify(currentUser));
-            myPresence.set(currentUser);
+            localStorage.setItem('cyber_vercel_user', JSON.stringify(currentUser));
 
             document.getElementById('login-modal').classList.add('hidden');
             document.getElementById('app-wrapper').classList.remove('hidden');
-            listenToRoom(currentRoom);
+            loadMessages();
             lucide.createIcons();
         }
 
         window.addEventListener('DOMContentLoaded', () => {
-            const saved = localStorage.getItem('cyber_user');
+            const saved = localStorage.getItem('cyber_vercel_user');
             if (saved) {
                 currentUser = JSON.parse(saved);
-                myPresence.set(currentUser);
                 document.getElementById('login-modal').classList.add('hidden');
                 document.getElementById('app-wrapper').classList.remove('hidden');
-                listenToRoom(currentRoom);
+                loadMessages();
             }
             lucide.createIcons();
         });
@@ -256,19 +253,7 @@
 
         function changeRoom(room) {
             currentRoom = room;
-            listenToRoom(room);
-        }
-
-        function listenToRoom(room) {
-            const chatRef = db.ref('chats/' + room);
-            chatRef.off();
-            const box = document.getElementById('chat-messages-box');
-            box.innerHTML = '';
-
-            chatRef.limitToLast(50).on('child_added', (snapshot) => {
-                const data = snapshot.val();
-                appendMsg(data.sender, data.text, currentUser && data.sender === currentUser.name);
-            });
+            loadMessages();
         }
 
         function sendChatMessage(e) {
@@ -277,12 +262,22 @@
             const text = input.value.trim();
             if (!text || !currentUser) return;
 
-            db.ref('chats/' + currentRoom).push({
-                sender: currentUser.name,
-                text: text,
-                timestamp: Date.now()
-            });
+            appendMsg(currentUser.name, text, true);
+            channel.postMessage({ room: currentRoom, sender: currentUser.name, text: text });
+            
+            let history = JSON.parse(localStorage.getItem('cyber_chat_' + currentRoom) || '[]');
+            history.push({ sender: currentUser.name, text: text });
+            if(history.length > 30) history.shift();
+            localStorage.setItem('cyber_chat_' + currentRoom, JSON.stringify(history));
+
             input.value = '';
+        }
+
+        function loadMessages() {
+            const box = document.getElementById('chat-messages-box');
+            box.innerHTML = '';
+            let history = JSON.parse(localStorage.getItem('cyber_chat_' + currentRoom) || '[]');
+            history.forEach(msg => appendMsg(msg.sender, msg.text, currentUser && msg.sender === currentUser.name));
         }
 
         function appendMsg(sender, text, isSelf) {
@@ -302,9 +297,8 @@
             box.scrollTop = box.scrollHeight;
         }
 
-        // Code Battle Token Generator
         function generateBattleToken() {
-            const token = 'CYBER-BATTLE-' + Math.random().toString(36).substring(2, 9).toUpperCase();
+            const token = 'CYBER-TOKEN-' + Math.random().toString(36).substring(2, 9).toUpperCase();
             document.getElementById('battle-token-text').innerText = "TOKEN: " + token;
             document.getElementById('token-display-box').classList.remove('hidden');
         }
@@ -312,35 +306,24 @@
         function copyToken() {
             const tokenText = document.getElementById('battle-token-text').innerText;
             navigator.clipboard.writeText(tokenText);
-            alert("Token nusxalandi! Do'stingizga yuborishingiz mumkin.");
+            alert("Token nusxalandi!");
         }
 
         function submitBattle() {
             const code = document.getElementById('battle-code').value.trim();
             if(!code || !currentUser) return alert("Kod kiriting!");
-            
-            db.ref('battles').push({
-                sender: currentUser.name,
-                code: code,
-                likes: 1
-            });
-            document.getElementById('battle-code').value = '';
-            alert("Kodingiz global tarmoqqa tarqatildi!");
-        }
-
-        db.ref('battles').on('child_added', (snapshot) => {
-            const data = snapshot.val();
             const res = document.getElementById('battle-results');
             res.innerHTML += `
                 <div class="p-3 bg-black/60 border border-appleBorder rounded-xl text-xs space-y-1 animate-apple-bounce">
                     <div class="flex justify-between text-cyberGreen font-bold">
-                        <span>${data.sender} [Battle]</span>
-                        <span>Likes: <strong class="text-white">${data.likes}</strong></span>
+                        <span>${currentUser.name} [Battle]</span>
+                        <span>Likes: <strong class="text-white">1</strong></span>
                     </div>
-                    <pre class="code-font text-slate-300 overflow-x-auto">${data.code}</pre>
+                    <pre class="code-font text-slate-300 overflow-x-auto">${code}</pre>
                 </div>
             `;
-        });
+            document.getElementById('battle-code').value = '';
+        }
 
         lucide.createIcons();
     </script>

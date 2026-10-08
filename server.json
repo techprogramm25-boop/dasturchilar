@@ -1,0 +1,54 @@
+const express = require('express');
+const http = require('http');
+const { Server } = require('socket.io');
+const path = require('path');
+
+const app = express();
+const server = http.createServer(app);
+const io = new Server(server, {
+    cors: { origin: "*" }
+});
+
+app.use(express.json());
+app.use(express.static(path.join(__dirname, 'public')));
+
+let onlineUsers = new Map();
+
+io.on('connection', (socket) => {
+    // Foydalanuvchi u ulanganda
+    socket.on('join-user', (userData) => {
+        onlineUsers.set(socket.id, userData);
+        io.emit('update-online-users', Array.from(onlineUsers.values()));
+        io.emit('server-log', { text: `${userData.name} platformaga qo'shildi.` });
+    });
+
+    // Real vaqtda chat xabari
+    socket.on('send-message', (data) => {
+        io.emit('receive-message', data);
+    });
+
+    // Kimdir yozayotgani (Typing)
+    socket.on('typing', (name) => {
+        socket.broadcast.emit('display-typing', name);
+    });
+
+    // Code Battle natijalarini ulashish
+    socket.on('submit-battle', (data) => {
+        io.emit('receive-battle-code', data);
+    });
+
+    // O'chganda
+    socket.on('disconnect', () => {
+        const user = onlineUsers.get(socket.id);
+        if (user) {
+            onlineUsers.delete(socket.id);
+            io.emit('update-online-users', Array.from(onlineUsers.values()));
+            io.emit('server-log', { text: `${user.name} tizimdan chiqdi.` });
+        }
+    });
+});
+
+const PORT = process.env.PORT || 3000;
+server.listen(PORT, () => {
+    console.log(`Server ishga tushdi: http://localhost:${PORT}`);
+});

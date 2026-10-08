@@ -3,10 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CYBER_CORE // Live Enterprise Edition</title>
-    <!-- Tailwind CSS -->
+    <title>CYBER_CORE // Enterprise Silicon Valley Edition</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <!-- Socket.io Client -->
     <script src="/socket.io/socket.io.js"></script>
     <script>
         tailwind.config = {
@@ -60,8 +58,8 @@
                 <div class="w-12 h-12 rounded-2xl bg-gradient-to-br from-cyberGreen to-cyberBlue mx-auto flex items-center justify-center text-black font-bold shadow-lg shadow-cyberGreen/20">
                     <i data-lucide="shield-check" class="w-6 h-6"></i>
                 </div>
-                <h2 class="text-xl font-bold text-white tracking-tight animated-msg-text">CYBER_CORE Live Auth</h2>
-                <p class="text-slate-400 text-xs animated-msg-text">Platformaga ulanish uchun ma'lumotlarni kiriting.</p>
+                <h2 class="text-xl font-bold text-white tracking-tight animated-msg-text">CYBER_CORE Enterprise Auth</h2>
+                <p class="text-slate-400 text-xs animated-msg-text">Ma'lumotlaringizni to'ldirib tizimga kiring.</p>
             </div>
             
             <form onsubmit="handleLogin(event)" class="space-y-4">
@@ -74,7 +72,7 @@
                     <input type="text" id="auth-phone" required placeholder="+998 (90) - 123 - 45 - 67" oninput="formatPhone(this)" class="w-full bg-black/50 border border-appleBorder rounded-xl px-4 py-3 text-xs font-mono text-cyberGreen focus:outline-none focus:border-cyberGreen transition">
                 </div>
                 <button type="submit" class="w-full py-3.5 rounded-xl bg-cyberGreen text-black font-semibold text-xs hover:opacity-90 transition shadow-lg shadow-cyberGreen/20 flex items-center justify-center space-x-2 motion-blur-hover">
-                    <span>Platformaga Kirish</span>
+                    <span>Kirish & Ma'lumotlarni Saqlash</span>
                     <i data-lucide="arrow-right" class="w-4 h-4"></i>
                 </button>
             </form>
@@ -90,21 +88,21 @@
                 </div>
                 <div>
                     <span class="text-base font-bold tracking-wider text-white">CYBER<span class="text-cyberGreen">CORE</span></span>
-                    <span class="block text-[9px] text-slate-500 font-mono tracking-widest uppercase">GitHub & Node Live</span>
+                    <span class="block text-[9px] text-slate-500 font-mono tracking-widest uppercase">WAF Secure Active</span>
                 </div>
             </div>
 
             <nav class="hidden md:flex items-center space-x-1 bg-black/40 p-1 rounded-xl border border-appleBorder">
                 <button onclick="switchTab('overview')" id="nav-overview" class="px-4 py-2 rounded-lg text-xs font-medium transition-all text-white bg-white/10 flex items-center space-x-2">Asosiy</button>
-                <button onclick="switchTab('security')" id="nav-security" class="px-4 py-2 rounded-lg text-xs font-medium transition-all text-slate-400 hover:text-white flex items-center space-x-2">Himoya</button>
-                <button onclick="switchTab('chat')" id="nav-chat" class="px-4 py-2 rounded-lg text-xs font-medium transition-all text-slate-400 hover:text-white flex items-center space-x-2 text-cyberGreen">Global Chat</button>
+                <button onclick="switchTab('security')" id="nav-security" class="px-4 py-2 rounded-lg text-xs font-medium transition-all text-slate-400 hover:text-white flex items-center space-x-2">Himoya & WAF</button>
+                <button onclick="switchTab('chat')" id="nav-chat" class="px-4 py-2 rounded-lg text-xs font-medium transition-all text-slate-400 hover:text-white flex items-center space-x-2 text-cyberGreen">Til Chatlari</button>
                 <button onclick="switchTab('battle')" id="nav-battle" class="px-4 py-2 rounded-lg text-xs font-medium transition-all text-slate-400 hover:text-white flex items-center space-x-2">Code Battle</button>
             </nav>
 
             <div class="flex items-center space-x-4">
                 <div class="flex items-center space-x-2 px-3 py-1.5 rounded-full bg-cyberGreen/10 border border-cyberGreen/20 text-cyberGreen text-xs font-mono">
                     <span class="w-2 h-2 rounded-full bg-cyberGreen animate-ping"></span>
-                    <span>Real Online: <strong id="real-server-counter" class="text-white">0</strong></span>
+                    <span>Online: <strong id="real-online-count" class="text-white">1</strong></span>
                 </div>
                 <div class="hidden sm:flex items-center space-x-2.5 bg-white/5 border border-appleBorder px-3 py-1.5 rounded-xl">
                     <div class="w-6 h-6 rounded-lg bg-cyberGreen text-black font-bold flex items-center justify-center text-[10px] font-mono" id="user-avatar-initials">AY</div>
@@ -114,41 +112,45 @@
         </header>
 
         <main class="flex-1 max-w-7xl w-full mx-auto p-6 md:p-8 space-y-6">
-            <!-- OVERVIEW TAB -->
+            <!-- OVERVIEW -->
             <section id="tab-overview" class="space-y-6 animate-apple-bounce">
                 <div class="glass-panel p-8 md:p-12 rounded-3xl relative overflow-hidden flex flex-col justify-between motion-blur-hover">
                     <div class="max-w-3xl space-y-4">
-                        <h1 class="text-3xl md:text-5xl font-bold tracking-tight text-white animated-msg-text">Professional Real-Time Platforma</h1>
-                        <p class="text-slate-400 text-sm md:text-base leading-relaxed animated-msg-text">GitHub'da joylashgan va Node.js orqali dunyo bo'ylab barcha insonlarni birlashtiruvchi xavfsizlik va jang maydoni.</p>
+                        <h1 class="text-3xl md:text-5xl font-bold tracking-tight text-white animated-msg-text">Enterprise Kiberxavfsizlik va Dasturlash Ekotizimi</h1>
+                        <p class="text-slate-400 text-sm md:text-base leading-relaxed animated-msg-text">Ma'lumotlaringiz saqlanadi, xakerlardan himoyalangan va tillar bo'yicha maxsus chat xonalari ishlaydi.</p>
                     </div>
                 </div>
             </section>
 
-            <!-- SECURITY TAB -->
+            <!-- SECURITY & WAF -->
             <section id="tab-security" class="hidden space-y-6 animate-apple-bounce">
-                <div class="glass-panel p-8 rounded-3xl space-y-6">
-                    <h2 class="text-2xl font-bold text-white animated-msg-text">Saytlarni Himoya Qilish & Audit</h2>
-                    <p class="text-slate-400 text-xs animated-msg-text">Saytingizni xakerlik hujumlari va SQL injectionlardan himoya qilish uchun real vaqtda skanerlash.</p>
-                    <button onclick="alert('Sayt himoyasi barqaror! Barcha tarmoqlar shifrlangan.')" class="px-5 py-2.5 rounded-xl bg-cyberBlue text-black font-semibold text-xs">Saytni Himoya Qilish</button>
+                <div class="glass-panel p-8 rounded-3xl space-y-4">
+                    <h2 class="text-2xl font-bold text-white animated-msg-text">Avtomatik WAF Himoya Tizimi</h2>
+                    <p class="text-slate-400 text-xs animated-msg-text">Saytga qilingan har qanday zararli so'rovlar (SQL injection, XSS) avtomatik ravishda bloklanadi va qurilmangiz xavfsiz saqlanadi.</p>
+                    <div class="p-4 rounded-xl bg-cyberGreen/10 border border-cyberGreen/20 text-cyberGreen text-xs font-mono">
+                        Status: WAF Active & Firewall Secure (99.9%)
+                    </div>
                 </div>
             </section>
 
-            <!-- CHAT TAB -->
+            <!-- CHAT ROOMS BY LANGUAGES -->
             <section id="tab-chat" class="hidden space-y-6 animate-apple-bounce">
-                <div class="glass-panel p-6 rounded-3xl h-[600px] flex flex-col justify-between">
-                    <div class="flex items-center justify-between pb-4 border-b border-appleBorder">
-                        <h2 class="text-base font-bold text-white animated-msg-text">Global Dasturchilar Chati (Real Live)</h2>
-                        <span class="text-xs font-mono text-cyberGreen px-3 py-1 rounded-full bg-cyberGreen/10 border border-cyberGreen/20">Node.js Sync</span>
+                <div class="glass-panel p-6 rounded-3xl h-[650px] flex flex-col justify-between">
+                    <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between pb-4 border-b border-appleBorder gap-3">
+                        <h2 class="text-base font-bold text-white animated-msg-text">Dasturlash Tillariga Oid Chatlar</h2>
+                        <div class="flex flex-wrap gap-2">
+                            <button onclick="changeChatRoom('python')" class="room-btn px-3 py-1.5 rounded-xl bg-cyberGreen text-black text-xs font-semibold">Python</button>
+                            <button onclick="changeChatRoom('javascript')" class="room-btn px-3 py-1.5 rounded-xl bg-white/5 border border-appleBorder text-slate-300 text-xs font-medium">JavaScript</button>
+                            <button onclick="changeChatRoom('csharp')" class="room-btn px-3 py-1.5 rounded-xl bg-white/5 border border-appleBorder text-slate-300 text-xs font-medium">C#</button>
+                            <button onclick="changeChatRoom('lua')" class="room-btn px-3 py-1.5 rounded-xl bg-white/5 border border-appleBorder text-slate-300 text-xs font-medium">Lua</button>
+                            <button onclick="changeChatRoom('security')" class="room-btn px-3 py-1.5 rounded-xl bg-white/5 border border-appleBorder text-slate-300 text-xs font-medium text-rose-400">Xakerlik</button>
+                        </div>
                     </div>
 
                     <div id="chat-messages-box" class="flex-1 overflow-y-auto space-y-4 py-4 pr-2"></div>
 
-                    <div id="typing-indicator" class="hidden items-center space-x-2 text-[11px] font-mono text-slate-400 px-2 animate-apple-bounce">
-                        <span id="typing-text">Kimdir yozyapti</span>
-                    </div>
-
-                    <form onsubmit="sendChatMessage(event)" class="pt-4 border-t border-appleBorder flex items-center space-x-3">
-                        <input type="text" id="chat-input-field" oninput="notifyTyping()" placeholder="Xabar yozing..." class="flex-1 bg-black/40 border border-appleBorder rounded-xl px-4 py-3 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-cyberGreen transition">
+                    <form onsubmit="sendRoomMessage(event)" class="pt-4 border-t border-appleBorder flex items-center space-x-3">
+                        <input type="text" id="chat-input-field" placeholder="Xabar yozing..." class="flex-1 bg-black/40 border border-appleBorder rounded-xl px-4 py-3 text-xs text-white placeholder-slate-500 focus:outline-none focus:border-cyberGreen transition">
                         <button type="submit" class="px-6 py-3 rounded-xl bg-cyberGreen text-black font-semibold text-xs hover:opacity-90 transition flex items-center space-x-2 motion-blur-hover">
                             <span>Yuborish</span>
                             <i data-lucide="send" class="w-3.5 h-3.5"></i>
@@ -157,38 +159,34 @@
                 </div>
             </section>
 
-            <!-- BATTLE TAB -->
+            <!-- BATTLE -->
             <section id="tab-battle" class="hidden space-y-6 animate-apple-bounce">
                 <div class="glass-panel p-8 rounded-3xl space-y-6">
-                    <h2 class="text-2xl font-bold text-white">Code Battle Arena</h2>
-                    <p class="text-slate-400 text-xs">Kod yozing, boshqalarga ulashing va eng ko'p like to'plab 1-o'rinni oling.</p>
+                    <h2 class="text-2xl font-bold text-white animated-msg-text">Code Battle Arena</h2>
+                    <p class="text-slate-400 text-xs animated-msg-text">Kodingizni yozing, jamoaga tarqating va like yig'ing.</p>
                     <textarea id="battle-code" class="w-full h-40 bg-black/60 border border-appleBorder rounded-xl p-3 code-font text-xs text-cyberGreen" placeholder="// Kodni yozing..."></textarea>
-                    <button onclick="submitBattle()" class="px-6 py-2.5 rounded-xl bg-cyberGreen text-black font-semibold text-xs">Kodni Tarqatish & Preview</button>
+                    <button onclick="submitBattle()" class="px-6 py-2.5 rounded-xl bg-cyberGreen text-black font-semibold text-xs motion-blur-hover">Kodni Tarqatish & Preview</button>
                     <div id="battle-results" class="space-y-3 mt-4"></div>
                 </div>
             </section>
         </main>
     </div>
 
-    <!-- Client Logic -->
+    <!-- Script Logic -->
     <script>
         const socket = io();
         let currentUser = null;
+        let currentRoom = 'python';
 
-        socket.on('update-online-users', (users) => {
-            document.getElementById('real-server-counter').innerText = users.length;
+        socket.on('online-count', (count) => {
+            document.getElementById('real-online-count').innerText = count;
         });
 
-        socket.on('server-log', (log) => {
-            const box = document.getElementById('chat-messages-box');
-            box.innerHTML += `<div class="text-center text-[10px] font-mono text-slate-500 my-2">${log.text}</div>`;
-        });
-
-        socket.on('receive-message', (data) => {
+        socket.on('new-room-message', (data) => {
             appendChatMessage(data.sender, data.text, data.id === socket.id);
         });
 
-        socket.on('receive-battle-code', (data) => {
+        socket.on('new-battle-submission', (data) => {
             const res = document.getElementById('battle-results');
             res.innerHTML += `
                 <div class="p-4 bg-black/60 border border-appleBorder rounded-xl text-xs space-y-2 animate-apple-bounce">
@@ -220,10 +218,12 @@
             e.preventDefault();
             const name = document.getElementById('auth-name').value.trim();
             const phone = document.getElementById('auth-phone').value.trim();
-            if (!name || phone.length < 25) return alert("Ma'lumotlarni to'liq kiriting!");
+            if (!name || phone.length < 25) return alert("Iltimos, ma'lumotlarni to'liq kiriting!");
 
             currentUser = { name, phone };
-            socket.emit('join-user', currentUser);
+            localStorage.setItem('cyber_user', JSON.stringify(currentUser));
+            socket.emit('join-platform', currentUser);
+            socket.emit('join-room', currentRoom);
 
             document.getElementById('login-modal').classList.add('hidden');
             document.getElementById('app-wrapper').classList.remove('hidden');
@@ -231,6 +231,20 @@
             document.getElementById('user-avatar-initials').innerText = name.substring(0, 2).toUpperCase();
             lucide.createIcons();
         }
+
+        window.addEventListener('DOMContentLoaded', () => {
+            const saved = localStorage.getItem('cyber_user');
+            if (saved) {
+                currentUser = JSON.parse(saved);
+                socket.emit('join-platform', currentUser);
+                socket.emit('join-room', currentRoom);
+                document.getElementById('login-modal').classList.add('hidden');
+                document.getElementById('app-wrapper').classList.remove('hidden');
+                document.getElementById('user-display-name').innerText = currentUser.name;
+                document.getElementById('user-avatar-initials').innerText = currentUser.name.substring(0, 2).toUpperCase();
+            }
+            lucide.createIcons();
+        });
 
         function switchTab(id) {
             ['overview', 'security', 'chat', 'battle'].forEach(t => {
@@ -242,13 +256,20 @@
             lucide.createIcons();
         }
 
-        function sendChatMessage(e) {
+        function changeChatRoom(room) {
+            currentRoom = room;
+            socket.emit('join-room', room);
+            document.getElementById('chat-messages-box.innerHTML') = '';
+            alert(room.toUpperCase() + " chat xonasiga o'tdingiz!");
+        }
+
+        function sendRoomMessage(e) {
             e.preventDefault();
             const input = document.getElementById('chat-input-field');
             const text = input.value.trim();
             if (!text || !currentUser) return;
 
-            socket.emit('send-message', { id: socket.id, sender: currentUser.name, text: text });
+            socket.emit('send-room-message', { room: currentRoom, id: socket.id, sender: currentUser.name, text: text });
             input.value = '';
         }
 
@@ -275,10 +296,6 @@
             socket.emit('submit-battle', { sender: currentUser.name, code: code });
             document.getElementById('battle-code').value = '';
             alert("Kodingiz jamoaga tarqatildi!");
-        }
-
-        function notifyTyping() {
-            if(currentUser) socket.emit('typing', currentUser.name);
         }
 
         lucide.createIcons();

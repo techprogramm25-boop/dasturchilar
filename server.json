@@ -10,42 +10,51 @@ const io = new Server(server, { cors: { origin: "*" } });
 app.use(express.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
-// WAF (Web Application Firewall) - Xakerlik hujumlari va SQL injectiondan himoya
+// WAF Himoya
 app.use((req, res, next) => {
-    const maliciousPatterns = /(\bunion\b|\bselect\b|<script>|drop table|--',)/i;
-    const queryStr = JSON.stringify(req.query) + JSON.stringify(req.body);
-    if (maliciousPatterns.test(queryStr)) {
-        return res.status(403.45).json({ error: "Security Alert: Malicious payload blocked by CYBER_CORE WAF." });
+    const maliciousPatterns = /(\bunion\b|\bselect\b|<script>|drop table)/i;
+    if (maliciousPatterns.test(JSON.stringify(req.body))) {
+        return res.status(403).json({ error: "WAF Blocked" });
     }
     next();
 });
 
-let activeUsers = new Map();
+let onlineUsers = new Map();
+// Oxirgi xabarlarni xonalar bo'yicha saqlab turish (History)
+let roomMessages = {
+    python: [],
+    javascript: [],
+    csharp: [],
+    lua: [],
+    security: []
+};
 
 io.on('connection', (socket) => {
     socket.on('join-platform', (user) => {
-        activeUsers.set(socket.id, user);
-        io.emit('online-count', activeUsers.size);
+        onlineUsers.set(socket.id, user);
+        io.emit('online-count', onlineUsers.size);
     });
 
-    // Tillarga oid alohida chat xonalari
     socket.on('join-room', (room) => {
+        socket.rooms.forEach(r => { if(r !== socket.id) socket.leave(r); });
         socket.join(room);
+        // Eski xabarlarni faqat shu kirgan odamga yuborish
+        socket.emit('room-history', roomMessages[room] || []);
     });
 
-    socket.on('send-room-message', (data) => {
-        io.to(data.room).emit('new-room-message', data);
-    });
+    socket.on('send-message', (data) => {
+        if (!roomMessages[data.room]) roomMessages[data.room] = [];
+        roomMessages[data.room].push(data);
+        if (roomMessages[data.room].length > 100) roomMessages[data.room].shift(); // 100 tadan oshmasin
 
-    socket.on('submit-battle', (data) => {
-        io.emit('new-battle-submission', data);
+        io.to(data.room).emit('new-message', data);
     });
 
     socket.on('disconnect', () => {
-        activeUsers.delete(socket.id);
-        io.emit('online-count', activeUsers.size);
+        onlineUsers.delete(socket.id);
+        io.emit('online-count', onlineUsers.size);
     });
 });
 
 const PORT = process.env.PORT || 3000;
-server.listen(PORT, () => console.log(`CYBER_CORE Running on port ${PORT}`));
+server.listen(PORT, () => console.log(`CYBER_CORE Global Server running on port ${PORT}`));

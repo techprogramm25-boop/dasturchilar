@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>CYBER_CORE // @Dasturchilar_Loyihasi_Bot Edition</title>
+    <title>Dasturchilar Platformasi // Silicon Valley Edition</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -21,12 +21,12 @@
                     },
                     keyframes: {
                         smoothEntrance: {
-                            '0%': { opacity: '0', transform: 'translateY(15px) scale(0.98)', filter: 'blur(10px)' },
+                            '0%': { opacity: '0', transform: 'translateY(12px) scale(0.98)', filter: 'blur(8px)' },
                             '100%': { opacity: '1', transform: 'translateY(0) scale(1)', filter: 'blur(0px)' },
                         }
                     },
                     animation: {
-                        'smooth-entrance': 'smoothEntrance 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                        'smooth-entrance': 'smoothEntrance 0.35s cubic-bezier(0.16, 1, 0.3, 1) forwards',
                     }
                 }
             }
@@ -41,8 +41,8 @@
         body { font-family: 'Inter', sans-serif; background-color: #020617; color: #f8fafc; overflow-x: hidden; touch-action: manipulation; }
         .code-font { font-family: 'JetBrains Mono', monospace; }
         .glass-panel { background: rgba(15, 23, 42, 0.78); backdrop-filter: blur(30px); border: 1px solid rgba(56, 189, 248, 0.15); box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5); }
-        .motion-blur-card { transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
-        .motion-blur-card:hover { transform: translateY(-4px); border-color: rgba(0, 240, 255, 0.4); box-shadow: 0 15px 35px -10px rgba(0, 240, 255, 0.25); }
+        .motion-blur-card { transition: all 0.35s cubic-bezier(0.16, 1, 0.3, 1); }
+        .motion-blur-card:hover { transform: translateY(-3px); border-color: rgba(0, 240, 255, 0.4); box-shadow: 0 15px 35px -10px rgba(0, 240, 255, 0.25); }
         video { object-fit: cover; border-radius: 1.25rem; }
         ::-webkit-scrollbar { width: 5px; }
         ::-webkit-scrollbar-thumb { background: rgba(56, 189, 248, 0.25); border-radius: 3px; }
@@ -57,8 +57,8 @@
                 <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-appleBlue to-appleCyan mx-auto flex items-center justify-center text-white shadow-lg shadow-appleBlue/30">
                     <i data-lucide="shield-check" class="w-6 h-6"></i>
                 </div>
-                <h2 class="text-lg font-bold text-white tracking-tight">CYBER_CORE Authentication</h2>
-                <p class="text-slate-400 text-xs">@Dasturchilar_Loyihasi_Bot tarmog'iga ulanish uchun ma'lumotlarni kiriting.</p>
+                <h2 class="text-lg font-bold text-white tracking-tight">Dasturchilar Authentication</h2>
+                <p class="text-slate-400 text-xs">dasturchilar.vercel.app platformasiga kirish</p>
             </div>
             
             <form onsubmit="handleLogin(event)" class="space-y-4">
@@ -84,11 +84,11 @@
         <header class="sticky top-0 z-40 glass-panel border-b border-appleBorder px-4 md:px-6 py-3.5 flex items-center justify-between">
             <div class="flex items-center space-x-3">
                 <div class="w-8 h-8 rounded-xl bg-gradient-to-tr from-appleBlue to-appleCyan flex items-center justify-center text-white shadow-md">
-                    <i data-lucide="cpu" class="w-4 h-4"></i>
+                    <i data-lucide="code-2" class="w-4 h-4"></i>
                 </div>
                 <div>
-                    <span class="text-xs md:text-sm font-bold tracking-wider text-white">CYBER<span class="text-appleCyan">_CORE</span></span>
-                    <a href="https://www.yusufxonpro.uz" target="_blank" class="block text-[9px] text-appleCyan font-mono hover:underline">www.yusufxonpro.uz ↗</a>
+                    <span class="text-xs md:text-sm font-bold tracking-wider text-white">DASTURCHILAR<span class="text-appleCyan">_NET</span></span>
+                    <a href="https://dasturchilar.vercel.app" target="_blank" class="block text-[9px] text-appleCyan font-mono hover:underline">dasturchilar.vercel.app ↗</a>
                 </div>
             </div>
 
@@ -103,14 +103,11 @@
                 <button onclick="switchTab('roulette')" id="nav-roulette" class="px-3 py-1.5 rounded-xl font-medium text-slate-400 hover:text-white transition flex items-center space-x-1.5">
                     <i data-lucide="video" class="w-3.5 h-3.5 text-rose-400"></i><span>Chat Ruletka</span>
                 </button>
-                <button onclick="switchTab('cs16')" id="nav-cs16" class="px-3 py-1.5 rounded-xl font-medium text-slate-400 hover:text-white transition flex items-center space-x-1.5">
-                    <i data-lucide="crosshair" class="w-3.5 h-3.5 text-amber-400"></i><span>CS 1.6 Config</span>
-                </button>
                 <button onclick="switchTab('analyzer')" id="nav-analyzer" class="px-3 py-1.5 rounded-xl font-medium text-slate-400 hover:text-white transition flex items-center space-x-1.5">
-                    <i data-lucide="code" class="w-3.5 h-3.5 text-cyberGreen"></i><span>Kod Tahlili</span>
+                    <i data-lucide="terminal" class="w-3.5 h-3.5 text-cyberGreen"></i><span>Kod Tahlili</span>
                 </button>
                 <button onclick="switchTab('battle')" id="nav-battle" class="px-3 py-1.5 rounded-xl font-medium text-slate-400 hover:text-white transition flex items-center space-x-1.5">
-                    <i data-lucide="terminal" class="w-3.5 h-3.5"></i><span>Battle & Token</span>
+                    <i data-lucide="cpu" class="w-3.5 h-3.5"></i><span>Battle Arena</span>
                 </button>
             </nav>
 
@@ -125,19 +122,19 @@
         <!-- CONTENT -->
         <main class="flex-1 max-w-6xl w-full mx-auto p-4 md:p-6 space-y-6 pb-20 lg:pb-6">
             
-            <!-- OVERVIEW -->
+            <!-- OVERVIEW (PC Mode) -->
             <section id="tab-overview" class="space-y-6 animate-smooth-entrance">
                 <div class="glass-panel p-6 md:p-10 rounded-3xl space-y-6 motion-blur-card relative overflow-hidden">
                     <div class="absolute -right-10 -bottom-10 w-64 h-64 bg-appleBlue/15 rounded-full blur-3xl pointer-events-none"></div>
                     <div class="space-y-3 max-w-2xl">
                         <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-appleBlue/10 border border-appleBlue/30 text-appleCyan text-xs font-mono">
-                            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i><span>@Dasturchilar_Loyihasi_Bot</span>
+                            <i data-lucide="sparkles" class="w-3.5 h-3.5"></i><span>dasturchilar.vercel.app</span>
                         </div>
-                        <h1 class="text-2xl md:text-4xl font-bold tracking-tight text-white">Assalomu alaykum Xush kelibsiz Dasturchilar Loyihasiga</h1>
-                        <p class="text-slate-400 text-xs md:text-sm leading-relaxed">Rasmiy hamkor: <a href="https://www.yusufxonpro.uz" target="_blank" class="text-appleCyan font-bold hover:underline">YusufxonPro.uz</a>. Dasturchilar va kiberxavfsizlik mutaxassislari uchun maxsus professional ekotizim.</p>
+                        <h1 class="text-2xl md:text-4xl font-bold tracking-tight text-white">Assalomu alaykum! Xush kelibsiz Dasturchilar Loyihasiga</h1>
+                        <p class="text-slate-400 text-xs md:text-sm leading-relaxed">Dasturchilar va IT mutaxassislari uchun maxsus xavfsiz muloqot, Video Chat Ruletka va kod tahlili ekotizimi.</p>
                     </div>
 
-                    <div class="grid grid-cols-2 md:grid-cols-5 gap-3 pt-2">
+                    <div class="grid grid-cols-2 md:grid-cols-4 gap-3 pt-2">
                         <div onclick="switchTab('chat')" class="p-4 rounded-2xl bg-slate-900/60 border border-slate-800 space-y-1.5 motion-blur-card cursor-pointer">
                             <i data-lucide="message-square" class="w-5 h-5 text-appleCyan"></i>
                             <h3 class="font-bold text-white text-xs">Global Chat</h3>
@@ -148,18 +145,13 @@
                             <h3 class="font-bold text-white text-xs">Chat Ruletka</h3>
                             <p class="text-slate-400 text-[10px]">Yuzma-yuz video chat</p>
                         </div>
-                        <div onclick="switchTab('cs16')" class="p-4 rounded-2xl bg-slate-900/60 border border-slate-800 space-y-1.5 motion-blur-card cursor-pointer">
-                            <i data-lucide="crosshair" class="w-5 h-5 text-amber-400"></i>
-                            <h3 class="font-bold text-white text-xs">CS 1.6 Config</h3>
-                            <p class="text-slate-400 text-[10px]">Crosshair & Bindlar</p>
-                        </div>
                         <div onclick="switchTab('analyzer')" class="p-4 rounded-2xl bg-slate-900/60 border border-slate-800 space-y-1.5 motion-blur-card cursor-pointer">
-                            <i data-lucide="code" class="w-5 h-5 text-cyberGreen"></i>
+                            <i data-lucide="terminal" class="w-5 h-5 text-cyberGreen"></i>
                             <h3 class="font-bold text-white text-xs">AI Tahlil</h3>
                             <p class="text-slate-400 text-[10px]">Code Reviewer</p>
                         </div>
                         <div onclick="switchTab('battle')" class="p-4 rounded-2xl bg-slate-900/60 border border-slate-800 space-y-1.5 motion-blur-card cursor-pointer">
-                            <i data-lucide="key" class="w-5 h-5 text-appleBlue"></i>
+                            <i data-lucide="cpu" class="w-5 h-5 text-appleBlue"></i>
                             <h3 class="font-bold text-white text-xs">Token Battle</h3>
                             <p class="text-slate-400 text-[10px]">Battle Arena</p>
                         </div>
@@ -173,7 +165,7 @@
                     <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between pb-3 border-b border-appleBorder gap-2">
                         <div class="flex items-center space-x-2">
                             <i data-lucide="message-square" class="w-4 h-4 text-appleCyan"></i>
-                            <span class="text-xs font-bold text-white uppercase tracking-wider">Til Xonalari (@Dasturchilar_Loyihasi_Bot)</span>
+                            <span class="text-xs font-bold text-white uppercase tracking-wider">Til Xonalari</span>
                         </div>
                         <div class="flex flex-wrap gap-1.5">
                             <button onclick="changeRoom('python')" class="room-btn px-2.5 py-1 rounded-xl bg-appleBlue text-white text-xs font-semibold">Python</button>
@@ -203,7 +195,7 @@
                             <i data-lucide="video" class="w-5 h-5 text-rose-400"></i>
                             <span>Yuzma-Yuz Video Chat Ruletka</span>
                         </h2>
-                        <p class="text-slate-400 text-xs">Kamera va mikrofon ruxsatini bering va dasturchilar bilan jonli muloqotni boshlang.</p>
+                        <p class="text-slate-400 text-xs">Kamera va mikrofon ruxsatini berib, dasturchilar bilan muloqotni boshlang.</p>
                     </div>
 
                     <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 max-w-3xl mx-auto">
@@ -228,56 +220,20 @@
                 </div>
             </section>
 
-            <!-- CS 1.6 CONFIG & COMMANDS -->
-            <section id="tab-cs16" class="hidden space-y-4 animate-smooth-entrance">
-                <div class="glass-panel p-6 rounded-3xl space-y-6 motion-blur-card">
-                    <div class="flex items-center justify-between pb-3 border-b border-appleBorder">
-                        <div class="flex items-center space-x-2">
-                            <i data-lucide="crosshair" class="w-5 h-5 text-amber-400"></i>
-                            <h2 class="text-base font-bold text-white">Counter-Strike 1.6 Pro Config & Bindlar</h2>
-                        </div>
-                        <span class="text-[10px] font-mono text-amber-400 bg-amber-400/10 px-2.5 py-1 rounded-full">CS 1.6 Arena</span>
-                    </div>
-
-                    <p class="text-slate-400 text-xs">Konsol buyruqlari, crosshair sozlamalari va tezkor bindlar:</p>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-                        <div class="p-4 bg-slate-900/80 border border-slate-800 rounded-2xl space-y-2">
-                            <h3 class="font-bold text-white text-xs flex items-center space-x-1.5"><i data-lucide="terminal" class="w-4 h-4 text-appleCyan"></i><span>Crosshair & FPS Buyruqlari</span></h3>
-                            <pre class="code-font text-[11px] text-amber-300 bg-slate-950 p-3 rounded-xl overflow-x-auto">
-cl_crosshair_size "small"
-cl_crosshair_color "50 250 50"
-fps_max "101"
-rate "25000"
-cl_cmdrate "101"
-cl_updaterate "101"</pre>
-                        </div>
-                        <div class="p-4 bg-slate-900/80 border border-slate-800 rounded-2xl space-y-2">
-                            <h3 class="font-bold text-white text-xs flex items-center space-x-1.5"><i data-lucide="cpu" class="w-4 h-4 text-cyberGreen"><span>Tezkor Bindlar</span></h3>
-                            <pre class="code-font text-[11px] text-cyberGreen bg-slate-950 p-3 rounded-xl overflow-x-auto">
-bind "F1" "buy ak47; buy m4a1; buy vesthelm"
-bind "F2" "buy defuser; buy flash; buy hegren"
-bind "SPACE" "+jump"
-bind "MWHEELDOWN" "+jump"</pre>
-                        </div>
-                    </div>
-                </div>
-            </section>
-
-            <!-- CODE ANALYZER -->
+            <!-- CODE ANALYZER (PC Mode) -->
             <section id="tab-analyzer" class="hidden space-y-4 animate-smooth-entrance">
                 <div class="glass-panel p-4 md:p-6 rounded-3xl h-[550px] flex flex-col justify-between motion-blur-card">
                     <div class="flex items-center justify-between pb-3 border-b border-appleBorder">
                         <div class="flex items-center space-x-2">
-                            <i data-lucide="code" class="w-4 h-4 text-cyberGreen"></i>
-                            <span class="text-xs font-bold text-white uppercase tracking-wider">Professional Kod Tahlilchisi</span>
+                            <i data-lucide="terminal" class="w-4 h-4 text-cyberGreen"></i>
+                            <span class="text-xs font-bold text-white uppercase tracking-wider">Professional AI Kod Tahlilchisi</span>
                         </div>
                     </div>
 
                     <div id="analyzer-messages-box" class="flex-1 overflow-y-auto space-y-2.5 py-3 pr-1 text-xs">
                         <div class="p-3 bg-slate-900/80 border border-slate-800 rounded-xl max-w-md space-y-1">
-                            <div class="text-[10px] font-mono text-cyberGreen font-bold">CYBER_CORE AI (@Dasturchilar_Loyihasi_Bot)</div>
-                            <p class="text-slate-300">Kodni shu yerga tashlang. Xatolik va optimizatsiya bo'yicha tahlil qilib beraman.</p>
+                            <div class="text-[10px] font-mono text-cyberGreen font-bold">AI Code Reviewer</div>
+                            <p class="text-slate-300">Kodni shu yerga yozing. Xatoliklarni va xavfsizlikni tahlil qilib beraman.</p>
                         </div>
                     </div>
 
@@ -288,12 +244,12 @@ bind "MWHEELDOWN" "+jump"</pre>
                 </div>
             </section>
 
-            <!-- BATTLE & TOKEN -->
+            <!-- BATTLE & TOKEN (PC Mode) -->
             <section id="tab-battle" class="hidden space-y-4 animate-smooth-entrance">
                 <div class="glass-panel p-6 rounded-3xl space-y-4 motion-blur-card">
                     <div class="flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
                         <h2 class="text-base font-bold text-white flex items-center space-x-2">
-                            <i data-lucide="terminal" class="w-4 h-4 text-appleCyan"></i>
+                            <i data-lucide="cpu" class="w-4 h-4 text-appleCyan"></i>
                             <span>Code Battle & Token Arena</span>
                         </h2>
                         <button onclick="generateBattleToken()" class="px-3 py-1.5 rounded-xl bg-appleBlue text-white font-semibold text-xs">Token Yaratish</button>
@@ -312,27 +268,15 @@ bind "MWHEELDOWN" "+jump"</pre>
         </main>
     </div>
 
-    <!-- Mobile Bottom Navigation Bar -->
-    <div id="mobile-bottom-nav" class="lg:hidden fixed bottom-0 inset-x-0 glass-panel border-t border-appleBorder p-2 z-40 flex items-center justify-around text-xs">
+    <!-- Mobile Bottom Navigation Bar (Faqat Telefon Mode'da CHAT va RULETKA ko'rinadi) -->
+    <div id="mobile-bottom-nav" class="hidden fixed bottom-0 inset-x-0 glass-panel border-t border-appleBorder p-3 z-40 items-center justify-around text-xs">
         <button onclick="switchTab('chat')" class="flex flex-col items-center space-y-1 text-appleCyan">
             <i data-lucide="message-square" class="w-5 h-5"></i>
-            <span class="text-[10px]">Chat</span>
+            <span class="text-[10px] font-semibold">Global Chat</span>
         </button>
         <button onclick="switchTab('roulette')" class="flex flex-col items-center space-y-1 text-rose-400">
             <i data-lucide="video" class="w-5 h-5"></i>
-            <span class="text-[10px]">Ruletka</span>
-        </button>
-        <button onclick="switchTab('cs16')" class="flex flex-col items-center space-y-1 text-amber-400">
-            <i data-lucide="crosshair" class="w-5 h-5"></i>
-            <span class="text-[10px]">CS 1.6</span>
-        </button>
-        <button onclick="switchTab('analyzer')" class="flex flex-col items-center space-y-1 text-cyberGreen">
-            <i data-lucide="code" class="w-5 h-5"></i>
-            <span class="text-[10px]">AI Tahlil</span>
-        </button>
-        <button onclick="switchTab('battle')" class="flex flex-col items-center space-y-1 text-slate-400">
-            <i data-lucide="terminal" class="w-5 h-5"></i>
-            <span class="text-[10px]">Battle</span>
+            <span class="text-[10px] font-semibold">Chat Ruletka</span>
         </button>
     </div>
 
@@ -390,45 +334,49 @@ bind "MWHEELDOWN" "+jump"</pre>
             if (!name || phone.length < 25) return alert("Ma'lumotlarni to'liq kiriting!");
 
             currentUser = { name, phone };
-            localStorage.setItem('cyber_dasturchilar_user', JSON.stringify(currentUser));
+            localStorage.setItem('dasturchilar_vercel_user', JSON.stringify(currentUser));
             myPresence.set(currentUser);
 
             document.getElementById('login-modal').classList.add('hidden');
             document.getElementById('app-wrapper').classList.remove('hidden');
 
-            if (deviceMode === 'mobile') {
-                switchTab('chat');
-            } else {
-                switchTab('overview');
-            }
-
+            setupDeviceLayout();
             listenToRoom(currentRoom);
             listenToBattles();
             lucide.createIcons();
         }
 
         window.addEventListener('DOMContentLoaded', () => {
-            const saved = localStorage.getItem('cyber_dasturchilar_user');
+            const saved = localStorage.getItem('dasturchilar_vercel_user');
             if (saved) {
                 currentUser = JSON.parse(saved);
                 myPresence.set(currentUser);
                 document.getElementById('login-modal').classList.add('hidden');
                 document.getElementById('app-wrapper').classList.remove('hidden');
                 
-                if (deviceMode === 'mobile') {
-                    switchTab('chat');
-                } else {
-                    switchTab('overview');
-                }
-
+                setupDeviceLayout();
                 listenToRoom(currentRoom);
                 listenToBattles();
             }
             lucide.createIcons();
         });
 
+        function setupDeviceLayout() {
+            if (deviceMode === 'mobile') {
+                document.getElementById('pc-nav').classList.add('hidden');
+                document.getElementById('mobile-bottom-nav').classList.remove('hidden');
+                document.getElementById('mobile-bottom-nav').classList.add('flex');
+                switchTab('chat');
+            } else {
+                document.getElementById('pc-nav').classList.remove('hidden');
+                document.getElementById('pc-nav').classList.add('flex');
+                document.getElementById('mobile-bottom-nav').classList.add('hidden');
+                switchTab('overview');
+            }
+        }
+
         function switchTab(id) {
-            ['overview', 'chat', 'roulette', 'cs16', 'analyzer', 'battle'].forEach(t => {
+            ['overview', 'chat', 'roulette', 'analyzer', 'battle'].forEach(t => {
                 const el = document.getElementById('tab-' + t);
                 if(el) el.classList.add('hidden');
             });
@@ -478,8 +426,8 @@ bind "MWHEELDOWN" "+jump"</pre>
             input.value = '';
 
             setTimeout(() => {
-                appendMsg('analyzer-messages-box', 'CYBER_CORE AI', "Kod tahlil qilindi: Sintaksis to'g'ri. @Dasturchilar_Loyihasi_Bot jamoasi uchun optimal holatda.", false);
-            }, 700);
+                appendMsg('analyzer-messages-box', 'AI Code Reviewer', "Kod tahlil qilindi: Sintaksis to'g'ri hamda xavfsizlik talablariga javob beradi.", false);
+            }, 600);
         }
 
         function appendMsg(boxId, sender, text, isSelf) {

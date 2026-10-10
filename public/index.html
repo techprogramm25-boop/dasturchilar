@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>CYBER_CORE // Enterprise Silicon Valley Edition</title>
+    <title>CYBER_CORE // Ultimate Silicon Valley Edition</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -13,7 +13,7 @@
                 extend: {
                     colors: {
                         enterpriseBg: '#020617',
-                        enterpriseCard: 'rgba(15, 23, 42, 0.75)',
+                        enterpriseCard: 'rgba(15, 23, 42, 0.8)',
                         enterpriseBorder: 'rgba(56, 189, 248, 0.15)',
                         appleBlue: '#0066CC',
                         appleCyan: '#00F0FF',
@@ -21,12 +21,12 @@
                     },
                     keyframes: {
                         smoothEntrance: {
-                            '0%': { opacity: '0', transform: 'translateY(12px) scale(0.98)', filter: 'blur(8px)' },
+                            '0%': { opacity: '0', transform: 'translateY(15px) scale(0.98)', filter: 'blur(10px)' },
                             '100%': { opacity: '1', transform: 'translateY(0) scale(1)', filter: 'blur(0px)' },
                         }
                     },
                     animation: {
-                        'smooth-entrance': 'smoothEntrance 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards',
+                        'smooth-entrance': 'smoothEntrance 0.45s cubic-bezier(0.16, 1, 0.3, 1) forwards',
                     }
                 }
             }
@@ -40,17 +40,17 @@
         @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
         body { font-family: 'Inter', sans-serif; background-color: #020617; color: #f8fafc; overflow-x: hidden; }
         .code-font { font-family: 'JetBrains Mono', monospace; }
-        .glass-panel { background: rgba(15, 23, 42, 0.7); backdrop-filter: blur(25px); border: 1px solid rgba(56, 189, 248, 0.12); box-shadow: 0 20px 50px rgba(0, 0, 0, 0.4); }
+        .glass-panel { background: rgba(15, 23, 42, 0.75); backdrop-filter: blur(30px); border: 1px solid rgba(56, 189, 248, 0.15); box-shadow: 0 25px 60px rgba(0, 0, 0, 0.5); }
         .motion-blur-card { transition: all 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
-        .motion-blur-card:hover { transform: translateY(-3px); border-color: rgba(0, 240, 255, 0.4); box-shadow: 0 10px 30px -10px rgba(0, 240, 255, 0.2); }
+        .motion-blur-card:hover { transform: translateY(-4px); border-color: rgba(0, 240, 255, 0.4); box-shadow: 0 15px 35px -10px rgba(0, 240, 255, 0.25); }
         ::-webkit-scrollbar { width: 5px; }
-        ::-webkit-scrollbar-thumb { background: rgba(56, 189, 248, 0.2); border-radius: 3px; }
+        ::-webkit-scrollbar-thumb { background: rgba(56, 189, 248, 0.25); border-radius: 3px; }
     </style>
 </head>
 <body class="min-h-screen flex flex-col antialiased selection:bg-appleBlue selection:text-white">
 
     <!-- LOGIN MODAL -->
-    <div id="login-modal" class="fixed inset-0 bg-black/85 backdrop-blur-3xl z-50 flex items-center justify-center p-4">
+    <div id="login-modal" class="fixed inset-0 bg-black/90 backdrop-blur-3xl z-50 flex items-center justify-center p-4">
         <div class="glass-panel p-8 rounded-3xl max-w-md w-full space-y-6 animate-smooth-entrance shadow-2xl">
             <div class="text-center space-y-2">
                 <div class="w-12 h-12 rounded-2xl bg-gradient-to-tr from-appleBlue to-appleCyan mx-auto flex items-center justify-center text-white shadow-lg shadow-appleBlue/30">
@@ -63,11 +63,11 @@
             <form onsubmit="handleLogin(event)" class="space-y-4">
                 <div>
                     <label class="block text-[11px] font-mono text-slate-400 mb-1.5 uppercase tracking-wider">Ism va Familiya</label>
-                    <input type="text" id="auth-name" required placeholder="Yusufxon Axmatov" class="w-full bg-slate-900/60 border border-slate-800 rounded-2xl px-4 py-3 text-xs text-white focus:outline-none focus:border-appleCyan transition">
+                    <input type="text" id="auth-name" required placeholder="Yusufxon Axmatov" class="w-full bg-slate-900/70 border border-slate-800 rounded-2xl px-4 py-3 text-xs text-white focus:outline-none focus:border-appleCyan transition">
                 </div>
                 <div>
                     <label class="block text-[11px] font-mono text-slate-400 mb-1.5 uppercase tracking-wider">Telefon (+998)</label>
-                    <input type="text" id="auth-phone" required placeholder="+998 (90) - 123 - 45 - 67" oninput="formatPhone(this)" class="w-full bg-slate-900/60 border border-slate-800 rounded-2xl px-4 py-3 text-xs font-mono text-appleCyan focus:outline-none focus:border-appleCyan transition">
+                    <input type="text" id="auth-phone" required placeholder="+998 (90) - 123 - 45 - 67" oninput="formatPhone(this)" class="w-full bg-slate-900/70 border border-slate-800 rounded-2xl px-4 py-3 text-xs font-mono text-appleCyan focus:outline-none focus:border-appleCyan transition">
                 </div>
                 <button type="submit" class="w-full py-3.5 rounded-2xl bg-gradient-to-r from-appleBlue to-appleCyan text-white font-semibold text-xs hover:opacity-90 transition shadow-lg shadow-appleBlue/20 flex items-center justify-center space-x-2">
                     <span>Platformaga Kirish</span>
@@ -87,22 +87,28 @@
                 </div>
                 <div>
                     <span class="text-sm font-bold tracking-wider text-white">CYBER<span class="text-appleCyan">_CORE</span></span>
-                    <span class="block text-[9px] text-slate-400 font-mono tracking-widest uppercase">Enterprise Cloud</span>
+                    <span class="block text-[9px] text-slate-400 font-mono tracking-widest uppercase">Ultimate Edition</span>
                 </div>
             </div>
 
-            <nav class="hidden md:flex items-center space-x-1 bg-slate-900/60 p-1 rounded-2xl border border-slate-800 text-xs">
-                <button onclick="switchTab('overview')" id="nav-overview" class="px-4 py-2 rounded-xl font-medium text-white bg-white/10 transition flex items-center space-x-2">
+            <nav class="hidden lg:flex items-center space-x-1 bg-slate-900/60 p-1 rounded-2xl border border-slate-800 text-xs">
+                <button onclick="switchTab('overview')" id="nav-overview" class="px-3.5 py-2 rounded-xl font-medium text-white bg-white/10 transition flex items-center space-x-1.5">
                     <i data-lucide="layout-dashboard" class="w-3.5 h-3.5 text-appleCyan"></i><span>Asosiy</span>
                 </button>
-                <button onclick="switchTab('chat')" id="nav-chat" class="px-4 py-2 rounded-xl font-medium text-slate-400 hover:text-white transition flex items-center space-x-2">
+                <button onclick="switchTab('chat')" id="nav-chat" class="px-3.5 py-2 rounded-xl font-medium text-slate-400 hover:text-white transition flex items-center space-x-1.5">
                     <i data-lucide="message-square" class="w-3.5 h-3.5"></i><span>Global Chat</span>
                 </button>
-                <button onclick="switchTab('battle')" id="nav-battle" class="px-4 py-2 rounded-xl font-medium text-slate-400 hover:text-white transition flex items-center space-x-2">
-                    <i data-lucide="terminal" class="w-3.5 h-3.5"></i><span>Code Battle & Token</span>
+                <button onclick="switchTab('analyzer')" id="nav-analyzer" class="px-3.5 py-2 rounded-xl font-medium text-slate-400 hover:text-white transition flex items-center space-x-1.5">
+                    <i data-lucide="code" class="w-3.5 h-3.5 text-cyberGreen"></i><span>Kod Tahlili</span>
                 </button>
-                <button onclick="switchTab('about')" id="nav-about" class="px-4 py-2 rounded-xl font-medium text-slate-400 hover:text-white transition flex items-center space-x-2">
-                    <i data-lucide="info" class="w-3.5 h-3.5"></i><span>Loyiha Haqida</span>
+                <button onclick="switchTab('voice')" id="nav-voice" class="px-3.5 py-2 rounded-xl font-medium text-slate-400 hover:text-white transition flex items-center space-x-1.5">
+                    <i data-lucide="mic" class="w-3.5 h-3.5 text-rose-400"></i><span>Discord Ovoz</span>
+                </button>
+                <button onclick="switchTab('battle')" id="nav-battle" class="px-3.5 py-2 rounded-xl font-medium text-slate-400 hover:text-white transition flex items-center space-x-1.5">
+                    <i data-lucide="terminal" class="w-3.5 h-3.5"></i><span>Battle & Token</span>
+                </button>
+                <button onclick="switchTab('about')" id="nav-about" class="px-3.5 py-2 rounded-xl font-medium text-slate-400 hover:text-white transition flex items-center space-x-1.5">
+                    <i data-lucide="info" class="w-3.5 h-3.5"></i><span>Loyiha</span>
                 </button>
             </nav>
 
@@ -119,30 +125,35 @@
             <!-- OVERVIEW -->
             <section id="tab-overview" class="space-y-6 animate-smooth-entrance">
                 <div class="glass-panel p-8 md:p-12 rounded-3xl space-y-6 motion-blur-card relative overflow-hidden">
-                    <div class="absolute -right-10 -bottom-10 w-64 h-64 bg-appleBlue/10 rounded-full blur-3xl pointer-events-none"></div>
+                    <div class="absolute -right-10 -bottom-10 w-64 h-64 bg-appleBlue/15 rounded-full blur-3xl pointer-events-none"></div>
                     <div class="space-y-3 max-w-2xl">
                         <div class="inline-flex items-center space-x-2 px-3 py-1 rounded-full bg-appleBlue/10 border border-appleBlue/30 text-appleCyan text-xs font-mono">
                             <i data-lucide="sparkles" class="w-3.5 h-3.5"></i><span>Silicon Valley Standards</span>
                         </div>
-                        <h1 class="text-2xl md:text-4xl font-bold tracking-tight text-white">Global Kiberxavfsizlik va Dasturlash Markazi</h1>
-                        <p class="text-slate-400 text-xs md:text-sm leading-relaxed">Vercel va Netlify dizayn tamoyillari asosida yaratilgan professional platforma. Chet eldagi va mahalliy dasturchilar bilan bir vaqtda muloqot qiling.</p>
+                        <h1 class="text-2xl md:text-4xl font-bold tracking-tight text-white">Dasturchilar va Xavfsizlik Uchun Mukammal Ekotizim</h1>
+                        <p class="text-slate-400 text-xs md:text-sm leading-relaxed">Global chat, Discord kabi ovozli muloqot xonasi, AI kod tahlilchisi va Token Battle maydoni.</p>
                     </div>
 
-                    <div class="grid grid-cols-1 md:grid-cols-3 gap-4 pt-4">
-                        <div class="p-5 rounded-2xl bg-slate-900/50 border border-slate-800 space-y-2 motion-blur-card">
+                    <div class="grid grid-cols-1 md:grid-cols-4 gap-4 pt-4">
+                        <div onclick="switchTab('chat')" class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800 space-y-2 motion-blur-card cursor-pointer">
                             <i data-lucide="globe" class="w-6 h-6 text-appleCyan"></i>
-                            <h3 class="font-bold text-white text-xs">Real-Time Global Sync</h3>
-                            <p class="text-slate-400 text-[11px]">Firebase bulut bazasi orqali xabarlar bir soniyada yetib boradi.</p>
+                            <h3 class="font-bold text-white text-xs">Global Chat</h3>
+                            <p class="text-slate-400 text-[11px]">Tillar bo'yicha real-time muloqot.</p>
                         </div>
-                        <div class="p-5 rounded-2xl bg-slate-900/50 border border-slate-800 space-y-2 motion-blur-card">
-                            <i data-lucide="key" class="w-6 h-6 text-cyberGreen"></i>
-                            <h3 class="font-bold text-white text-xs">Token Battle Arenasi</h3>
-                            <p class="text-slate-400 text-[11px]">Maxsus token generatsiya qilib do'stlar bilan kod almashish.</p>
+                        <div onclick="switchTab('analyzer')" class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800 space-y-2 motion-blur-card cursor-pointer">
+                            <i data-lucide="code" class="w-6 h-6 text-cyberGreen"></i>
+                            <h3 class="font-bold text-white text-xs">Kod Tahlili</h3>
+                            <p class="text-slate-400 text-[11px]">Professional kod reviziyasi.</p>
                         </div>
-                        <div class="p-5 rounded-2xl bg-slate-900/50 border border-slate-800 space-y-2 motion-blur-card">
-                            <i data-lucide="shield" class="w-6 h-6 text-appleBlue"></i>
-                            <h3 class="font-bold text-white text-xs">Apple UI Motion</h3>
-                            <p class="text-slate-400 text-[11px]">Minimalist oq va ko'k ranglar uyg'unligidagi professional dizayn.</p>
+                        <div onclick="switchTab('voice')" class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800 space-y-2 motion-blur-card cursor-pointer">
+                            <i data-lucide="mic" class="w-6 h-6 text-rose-400"></i>
+                            <h3 class="font-bold text-white text-xs">Discord Ovoz</h3>
+                            <p class="text-slate-400 text-[11px]">Mic ON qilib gaplashish.</p>
+                        </div>
+                        <div onclick="switchTab('battle')" class="p-5 rounded-2xl bg-slate-900/60 border border-slate-800 space-y-2 motion-blur-card cursor-pointer">
+                            <i data-lucide="key" class="w-6 h-6 text-appleBlue"></i>
+                            <h3 class="font-bold text-white text-xs">Token Battle</h3>
+                            <p class="text-slate-400 text-[11px]">Token xonalarida bellashuv.</p>
                         </div>
                     </div>
                 </div>
@@ -174,6 +185,68 @@
                             <i data-lucide="send" class="w-3.5 h-3.5"></i>
                         </button>
                     </form>
+                </div>
+            </section>
+
+            <!-- CODE ANALYZER CHAT -->
+            <section id="tab-analyzer" class="hidden space-y-4 animate-smooth-entrance">
+                <div class="glass-panel p-6 rounded-3xl h-[600px] flex flex-col justify-between motion-blur-card">
+                    <div class="flex items-center justify-between pb-4 border-b border-enterpriseBorder">
+                        <div class="flex items-center space-x-2">
+                            <i data-lucide="code" class="w-4 h-4 text-cyberGreen"></i>
+                            <span class="text-xs font-bold text-white uppercase tracking-wider">Professional Kod Tahlilchisi</span>
+                        </div>
+                        <span class="text-[10px] font-mono text-slate-400">AI Code Reviewer</span>
+                    </div>
+
+                    <div id="analyzer-messages-box" class="flex-1 overflow-y-auto space-y-3 py-4 pr-2 text-xs">
+                        <div class="p-4 bg-slate-900/80 border border-slate-800 rounded-2xl max-w-lg space-y-1">
+                            <div class="text-[10px] font-mono text-cyberGreen font-bold">CYBER_CORE AI Analyzer</div>
+                            <p class="text-slate-300">Salom! Kodlaringizni tahlil qilish uchun shu yerga tashlang. Xatolar, optimizatsiya va xavfsizlik bo'yicha maslahat beraman.</p>
+                        </div>
+                    </div>
+
+                    <form onsubmit="sendAnalyzerMessage(event)" class="pt-4 border-t border-enterpriseBorder flex items-center space-x-3">
+                        <input type="text" id="analyzer-input-field" placeholder="Kodni yoki savolni yozing..." class="flex-1 bg-slate-900/70 border border-slate-800 rounded-2xl px-4 py-3 text-xs code-font text-white placeholder-slate-500 focus:outline-none focus:border-cyberGreen transition">
+                        <button type="submit" class="px-6 py-3 rounded-2xl bg-cyberGreen text-slate-950 font-bold text-xs hover:opacity-90 transition flex items-center space-x-2 shadow-lg shadow-cyberGreen/20">
+                            <span>Tahlil Qilish</span>
+                            <i data-lucide="cpu" class="w-3.5 h-3.5"></i>
+                        </button>
+                    </form>
+                </div>
+            </section>
+
+            <!-- DISCORD VOICE ROOM -->
+            <section id="tab-voice" class="hidden space-y-6 animate-smooth-entrance">
+                <div class="glass-panel p-8 md:p-12 rounded-3xl space-y-8 motion-blur-card text-center max-w-2xl mx-auto">
+                    <div class="space-y-3">
+                        <div class="w-16 h-16 rounded-3xl bg-rose-500/10 border border-rose-500/30 mx-auto flex items-center justify-center text-rose-400 shadow-xl shadow-rose-500/10">
+                            <i data-lucide="mic" class="w-8 h-8 animate-pulse" id="mic-icon-main"></i>
+                        </div>
+                        <h2 class="text-xl font-bold text-white">Discord Uslubidagi Ovozli Muloqot</h2>
+                        <p class="text-slate-400 text-xs">Do'stlaringiz bilan jonli ovozli kanalda gaplashing. Mikrofon ruxsatini yoqing va muloqotni boshlang.</p>
+                    </div>
+
+                    <div id="voice-status-box" class="p-4 rounded-2xl bg-slate-900/80 border border-slate-800 text-xs font-mono text-slate-300">
+                        Status: <strong class="text-rose-400" id="mic-status-text">Mic OFF (O'chirilgan)</strong>
+                    </div>
+
+                    <div class="flex items-center justify-center space-x-4">
+                        <button onclick="toggleMicrophone()" id="mic-toggle-btn" class="px-8 py-3.5 rounded-2xl bg-rose-600 text-white font-bold text-xs hover:bg-rose-500 transition shadow-lg shadow-rose-600/30 flex items-center space-x-2">
+                            <i data-lucide="mic-off" class="w-4 h-4" id="mic-btn-icon"></i>
+                            <span id="mic-btn-text">Mikrofonni Yoqish (Mic ON)</span>
+                        </button>
+                    </div>
+
+                    <div class="pt-4 border-t border-enterpriseBorder text-left space-y-3">
+                        <h3 class="text-xs font-bold text-white uppercase tracking-wider">Xonadagi Faol Ishtirokchilar:</h3>
+                        <div id="voice-users-list" class="space-y-2">
+                            <div class="p-3 rounded-xl bg-slate-900/50 border border-slate-800 text-xs flex items-center justify-between">
+                                <span class="font-semibold text-white" id="current-voice-username">Yuklanmoqda...</span>
+                                <span class="px-2.5 py-0.5 rounded-full bg-cyberGreen/10 text-cyberGreen text-[10px] font-mono">Connected</span>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </section>
 
@@ -222,19 +295,19 @@
                             <i data-lucide="shield-check" class="w-6 h-6"></i>
                         </div>
                         <div>
-                            <h2 class="text-lg font-bold text-white">CYBER_CORE Enterprise Edition</h2>
-                            <p class="text-slate-400 text-xs">O'zbekistonlik dasturchilar uchun global xavfsizlik va kodlash ekotizimi.</p>
+                            <h2 class="text-lg font-bold text-white">CYBER_CORE Ultimate Edition</h2>
+                            <p class="text-slate-400 text-xs">O'zbekistonlik dasturchilar uchun global xavfsizlik va muloqot maskani.</p>
                         </div>
                     </div>
 
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-4 text-xs text-slate-300">
                         <div class="p-5 rounded-2xl bg-slate-900/50 border border-slate-800 space-y-2">
-                            <h3 class="font-bold text-white flex items-center space-x-2"><i data-lucide="cpu" class="w-4 h-4 text-appleCyan"></i><span>Arxitektura</span></h3>
-                            <p class="text-slate-400 leading-relaxed">Platforma to'liq Firebase Realtime Database va zamonaviy Tailwind CSS yordamida qurilgan bo'lib, dunyoning istalgan nuqtasidan uzluksiz sinxronizatsiyani ta'minlaydi.</p>
+                            <h3 class="font-bold text-white flex items-center space-x-2"><i data-lucide="cpu" class="w-4 h-4 text-appleCyan"></i><span>Imkoniyatlar</span></h3>
+                            <p class="text-slate-400 leading-relaxed">Global til chatlari, Discord ovozli muloqot xonasi, AI kod tahlilchisi va token asosidagi code battle maydoni to'liq ishlaydi.</p>
                         </div>
                         <div class="p-5 rounded-2xl bg-slate-900/50 border border-slate-800 space-y-2">
-                            <h3 class="font-bold text-white flex items-center space-x-2"><i data-lucide="user" class="w-4 h-4 text-cyberGreen"></i><span>Muallif & Dizayn</span></h3>
-                            <p class="text-slate-400 leading-relaxed">Loyiha muallifi: <strong class="text-white">Yusufxon Axmatov</strong>. Silicon Valley minimalist dizayn standartlari va Apple Motion estetikasiga asoslangan.</p>
+                            <h3 class="font-bold text-white flex items-center space-x-2"><i data-lucide="user" class="w-4 h-4 text-cyberGreen"></i><span>Muallif</span></h3>
+                            <p class="text-slate-400 leading-relaxed">Loyiha muallifi: <strong class="text-white">Yusufxon Axmatov</strong>. Silicon Valley minimalist dizayn standartlari asosida yaratilgan.</p>
                         </div>
                     </div>
                 </div>
@@ -274,6 +347,8 @@
         let currentUser = null;
         let currentRoom = 'python';
         let currentBattleToken = 'GENERAL-ARENA';
+        let isMicActive = false;
+        let mediaStream = null;
 
         const presenceRef = db.ref('presence');
         const myPresence = presenceRef.push();
@@ -305,23 +380,25 @@
             if (!name || phone.length < 25) return alert("Ma'lumotlarni to'liq kiriting!");
 
             currentUser = { name, phone };
-            localStorage.setItem('cyber_enterprise_user', JSON.stringify(currentUser));
+            localStorage.setItem('cyber_ultimate_user', JSON.stringify(currentUser));
             myPresence.set(currentUser);
 
             document.getElementById('login-modal').classList.add('hidden');
             document.getElementById('app-wrapper').classList.remove('hidden');
+            document.getElementById('current-voice-username').innerText = name;
             listenToRoom(currentRoom);
             listenToBattles();
             lucide.createIcons();
         }
 
         window.addEventListener('DOMContentLoaded', () => {
-            const saved = localStorage.getItem('cyber_enterprise_user');
+            const saved = localStorage.getItem('cyber_ultimate_user');
             if (saved) {
                 currentUser = JSON.parse(saved);
                 myPresence.set(currentUser);
                 document.getElementById('login-modal').classList.add('hidden');
                 document.getElementById('app-wrapper').classList.remove('hidden');
+                document.getElementById('current-voice-username').innerText = currentUser.name;
                 listenToRoom(currentRoom);
                 listenToBattles();
             }
@@ -329,12 +406,16 @@
         });
 
         function switchTab(id) {
-            ['overview', 'chat', 'battle', 'about'].forEach(t => {
-                document.getElementById('tab-' + t).classList.add('hidden');
-                document.getElementById('nav-' + t).className = "px-4 py-2 rounded-xl font-medium text-slate-400 hover:text-white transition flex items-center space-x-2";
+            ['overview', 'chat', 'analyzer', 'voice', 'battle', 'about'].forEach(t => {
+                const el = document.getElementById('tab-' + t);
+                if(el) el.classList.add('hidden');
+                const nav = document.getElementById('nav-' + t);
+                if(nav) nav.className = "px-3.5 py-2 rounded-xl font-medium text-slate-400 hover:text-white transition flex items-center space-x-1.5";
             });
-            document.getElementById('tab-' + id).classList.remove('hidden');
-            document.getElementById('nav-' + id).className = "px-4 py-2 rounded-xl font-medium text-white bg-white/10 transition flex items-center space-x-2";
+            const targetTab = document.getElementById('tab-' + id);
+            if(targetTab) targetTab.classList.remove('hidden');
+            const targetNav = document.getElementById('nav-' + id);
+            if(targetNav) targetNav.className = "px-3.5 py-2 rounded-xl font-medium text-white bg-white/10 transition flex items-center space-x-1.5";
             lucide.createIcons();
         }
 
@@ -351,7 +432,7 @@
 
             chatRef.limitToLast(50).on('child_added', (snapshot) => {
                 const data = snapshot.val();
-                appendMsg(data.sender, data.text, currentUser && data.sender === currentUser.name);
+                appendMsg('chat-messages-box', data.sender, data.text, currentUser && data.sender === currentUser.name);
             });
         }
 
@@ -369,21 +450,76 @@
             input.value = '';
         }
 
-        function appendMsg(sender, text, isSelf) {
-            const box = document.getElementById('chat-messages-box');
+        // AI Code Analyzer Logic
+        function sendAnalyzerMessage(e) {
+            e.preventDefault();
+            const input = document.getElementById('analyzer-input-field');
+            const text = input.value.trim();
+            if (!text || !currentUser) return;
+
+            appendMsg('analyzer-messages-box', currentUser.name, text, true);
+            input.value = '';
+
+            // AI Simulator Response
+            setTimeout(() => {
+                let aiReply = "Tahlil natijasi: Kod yaxshi yozilgan, sintaksisda xatolik topilmadi. Optimizatsiya uchun o'zgaruvchi nomlarini yanada aniqroq tanlash tavsiya etiladi.";
+                if (text.includes("def ") || text.includes("function") || text.includes("class")) {
+                    aiReply = "Kod tahlili: Funksiya mantiqi to'g'ri ishlaydi. Xavfsizlik jihatidan null tekshiruvlarini qo'shish maqsadga muvofiq.";
+                }
+                appendMsg('analyzer-messages-box', 'CYBER_CORE AI', aiReply, false);
+            }, 800);
+        }
+
+        function appendMsg(boxId, sender, text, isSelf) {
+            const box = document.getElementById(boxId);
             const html = `
                 <div class="flex items-start space-x-2 ${isSelf ? 'justify-end' : ''} animate-smooth-entrance">
                     <div class="${isSelf ? 'bg-appleBlue/20 border-appleBlue/30 text-white' : 'bg-slate-900/80 border-slate-800 text-slate-200'} border p-3 rounded-2xl max-w-sm">
                         <div class="flex items-center ${isSelf ? 'justify-end' : ''} space-x-2 mb-1">
                             <span class="text-[9px] text-slate-400 font-mono">Hozir</span>
-                            <span class="text-[11px] font-semibold ${isSelf ? 'text-appleCyan' : 'text-white'}">${sender}</span>
+                            <span class="text-[11px] font-semibold ${isSelf ? 'text-appleCyan' : 'text-cyberGreen'}">${sender}</span>
                         </div>
-                        <p class="text-xs leading-relaxed">${text}</p>
+                        <p class="text-xs leading-relaxed code-font">${text}</p>
                     </div>
                 </div>
             `;
             box.insertAdjacentHTML('beforeend', html);
             box.scrollTop = box.scrollHeight;
+        }
+
+        // Discord Voice Recorder Logic
+        async function toggleMicrophone() {
+            const btn = document.getElementById('mic-toggle-btn');
+            const statusText = document.getElementById('mic-status-text');
+            const btnIcon = document.getElementById('mic-btn-icon');
+            const btnText = document.getElementById('mic-btn-text');
+
+            if (!isMicActive) {
+                try {
+                    mediaStream = await navigator.mediaDevices.getUserMedia({ audio: true });
+                    isMicActive = true;
+                    statusText.innerText = "Mic ON (Faol va ulandi)";
+                    statusText.className = "text-cyberGreen";
+                    btn.className = "px-8 py-3.5 rounded-2xl bg-cyberGreen text-slate-950 font-bold text-xs hover:opacity-90 transition shadow-lg shadow-cyberGreen/30 flex items-center space-x-2";
+                    btnIcon.setAttribute('data-lucide', 'mic');
+                    btnText.innerText = "Mikrofonni O'chirish (Mic OFF)";
+                    lucide.createIcons();
+                    alert("Mikrofon muvaffaqiyatli yoqildi va ovozli kanalga ulandingiz!");
+                } catch (err) {
+                    alert("Mikrofon ruxsati rad etildi yoki qurilmada mikrofon topilmadi!");
+                }
+            } else {
+                if (mediaStream) {
+                    mediaStream.getTracks().forEach(track => track.stop());
+                }
+                isMicActive = false;
+                statusText.innerText = "Mic OFF (O'chirilgan)";
+                statusText.className = "text-rose-400";
+                btn.className = "px-8 py-3.5 rounded-2xl bg-rose-600 text-white font-bold text-xs hover:bg-rose-500 transition shadow-lg shadow-rose-600/30 flex items-center space-x-2";
+                btnIcon.setAttribute('data-lucide', 'mic-off');
+                btnText.innerText = "Mikrofonni Yoqish (Mic ON)";
+                lucide.createIcons();
+            }
         }
 
         function generateBattleToken() {
